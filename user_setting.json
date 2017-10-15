@@ -1,0 +1,9 @@
+{
+  "warning_year": 2,
+  "warning_title":["教育计划", "倾向性问题", "一人一事",  "重大节日", "敏感时节"],
+  "warning_num": 3,
+
+  "warning_template_1": "近%d年来， %s月间共发生%s，推荐重点关注“<b>%s</b>”问题, 进行“<b>%s</b>”。",
+  "warning_template_2": "%s %s",
+  "warning_template_3": "近%d年来， %s月间无此类问题。"
+}
