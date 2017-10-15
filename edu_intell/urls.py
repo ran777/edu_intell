@@ -15,9 +15,9 @@ Including another URLconf
 """
 from django.conf.urls import url
 from django.contrib import admin
-from edu_warning import views
+from edu_warning import views as warning
 
 urlpatterns = [
-    url(r'^warning/', views.index, name='warning_index'),
+    url(r'^warning/', warning.index, name='warning_index'),
     url(r'^admin/', admin.site.urls),
 ]

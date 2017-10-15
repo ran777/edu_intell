@@ -1,83 +1,7 @@
+{% extends "common.html" %}
 {% load static %}
-<html lang="zh-CN">
 
-<head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>思想政治教育智能帮手</title>
-
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
-    <link rel="stylesheet" href="{% static 'css/custom.css' %}">
-</head>
-
-<body>
-<!-- Navbar fixed-top -->
-<nav class="navbar fixed-top navbar-expand-lg navbar-dark" style="background-color: #126556;">
-    <a class="navbar-brand" href="#">
-        <img src="{% static 'img/logo.png'%}">
-        思想政治教育智能帮手
-    </a>
-    <button class="navbar-toggler" type="button" data-toggle="auto" data-target="#navbarSupportedContent"
-            aria-controls="navbarSupportedContent"
-            aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-    </button>
-
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav mr-auto">
-            <li class="nav-item">
-                <a class="nav-link" href="#">首页</a>
-            </li>
-
-            <li class="nav-item active">
-                <a class="nav-link" href="#">预警研判 <span class="sr-only">(current)</span></a>
-            </li>
-            <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown"
-                   aria-haspopup="true" aria-expanded="false">
-                    快速跳转
-                </a>
-                <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                    <a class="dropdown-item" href="warning.html">预警研判</a>
-                    <a class="dropdown-item" href="design.html">创意设计</a>
-                    <a class="dropdown-item" href="material.html">素材集锦</a>
-                    <a class="dropdown-item" href="question.html">疑难会诊</a>
-                    <a class="dropdown-item" href="recommend.html">我要推荐</a>
-                    <a class="dropdown-item" href="link.html">经典链接</a>
-                    <a class="dropdown-item" href="collaborate.htnl">云协作</a>
-                </div>
-
-            <li class="nav-item">
-                <a class="nav-link" href="#">使用说明</a>
-            </li>
-        </ul>
-        <ul class="navbar-nav ml-md-auto">
-            <li class="nav-item">
-                <a class="nav-item nav-link" href="#">
-                    登录/注册
-                </a>
-            </li>
-
-            <li class="nav-item">
-                <a class="nav-item nav-link" href="#">
-                    通知中心
-                </a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-item nav-link" href="#" data-toggle="popover" data-placement="bottom" data-content="这是素材筐"
-                   data-trigger="focus"
-                   data-html="true">
-                    素材筐
-                </a>
-            </li>
-
-
-        </ul>
-        <a class="btn btn-success" href="#">投稿</a>
-    </div>
-</nav>
+{% block main %}
 
 <div class="container-fluid main-wrapper">
     <nav class="nav nav-tabs  nav-justified" id="materialTab" role="tablist">
@@ -116,8 +40,7 @@
                             <ul>
                                 {% for i in card.1 %}
                                 <li>{{ i }}</li>
-                                                    {% endfor %}
-
+                                {% endfor %}
                             </ul>
                         </div>
                     </div>
@@ -144,14 +67,5 @@
 
 </div>
 
-<a href="#top" id="backToTopBtn" class="well well-sm">top</a>
-<!-- Optional JavaScript -->
-<!-- jQuery first, then Popper.js, then Bootstrap JS -->
-<script src="{% static 'js/jquery-3.2.1.min.js' %}"></script>
-<script src="{% static 'js/propper.js' %}"></script>
+{% endblock %}
 
-<script src="{% static 'js/bootstrap.min.js' %}"></script>
-<script src="{% static 'js/custom.js' %}"></script>
-</body>
-
-</html>

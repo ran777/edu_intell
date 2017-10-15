@@ -25,6 +25,7 @@ def index(request):
 
     summary1, summary2 = summary_stats(qs1, qs2)
     context = {
+        "page_now": "预警研判",
         "cards_with_figure": summary1,
         "cards": summary2
     }
