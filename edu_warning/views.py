@@ -29,4 +29,5 @@ def index(request):
         "cards_with_figure": summary1,
         "cards": summary2
     }
+
     return render(request, 'warning.html', context)

@@ -21,6 +21,15 @@
     padding: 0;
 }
 
+.list-group-item {
+    padding: 1.25em;
+}
+.list-group-item-custom {
+    color: #fff;
+    background-color: #17a2b8!important;
+    border: none;
+}
+
 #sidebar .list-group {
     overflow-y: scroll;
     /*height: auto;*/
