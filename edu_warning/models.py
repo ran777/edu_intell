@@ -37,3 +37,35 @@ class HistoryWarning(models.Model):
 
     def str_tags(self):
         return "/".join(self.list_tags())
+
+
+class Questionnaire(models.Model):
+    title = models.CharField(max_length=100)
+    start_date = models.DateField()
+    end_date = models.DateField()
+    creator = models.ForeignKey('auth.User')
+    content = models.TextField(null=True, blank=True)
+
+    def __str__(self):
+        return self.title
+
+
+class Question(models.Model):
+    title = models.CharField(max_length=200)
+    questionnaire = models.ForeignKey(Questionnaire, on_delete=models.CASCADE)
+
+    def __str__(self):
+        return self.title
+
+
+class Option(models.Model):
+    title = models.CharField(max_length=50)
+    question = models.ForeignKey(Question, on_delete=models.CASCADE)
+    type = models.CharField(
+        max_length=20,
+        choices=(
+            ('single', '单选'),
+        ),
+        default='single',
+    )
+    value = models.FloatField(null=True, blank=True)
