@@ -1,5 +1,4 @@
 from django.db import models
-
 # Create your models here.
 
 
@@ -48,6 +47,10 @@ class Questionnaire(models.Model):
 
     def __str__(self):
         return self.title
+
+    @property
+    def date_range(self):
+        return "%s~%s" % (self.start_date.strftime("%Y/%m/%d"), self.end_date.strftime("%Y/%m/%d"))
 
 
 class Question(models.Model):

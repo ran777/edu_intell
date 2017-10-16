@@ -41,7 +41,7 @@ def summary_stats(qs1, qs2):
 
     for q, title in zip(qs2, user_setting["warning_title"][-2:]):
         if len(q):
-            res2.append((title, [user_setting["warning_template_2"] % (date.strftime(i.date, "%m-%d"), i.title) for i in q.order_by('date')]))
+            res2.append((title, [user_setting["warning_template_2"] % (i.date.strftime("%m-%d"), i.title) for i in q.order_by('date')]))
         else:
             res1.append((title, user_setting['warning_template_3'] % (y, m)))
     return res1, res2

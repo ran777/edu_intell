@@ -1,13 +1,15 @@
 from django.shortcuts import render
 from django.http import HttpResponse
 from django.db.models import Q
-from .models import HistoryWarning
+from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
+from .models import HistoryWarning, Questionnaire
 
-from .tools import get_date, summary_stats
+
+from .tools import get_date, summary_stats, user_setting
 # Create your views here.
 
 
-def index(request):
+def history_warning(request):
     date_range, m = get_date()
 
     q_list = HistoryWarning.objects.filter(Q(date__month=m[0]) | Q(date__month=m[1]))
@@ -24,10 +26,28 @@ def index(request):
     ]
 
     summary1, summary2 = summary_stats(qs1, qs2)
+
     context = {
         "page_now": "预警研判",
         "cards_with_figure": summary1,
-        "cards": summary2
+        "cards": summary2,
     }
 
     return render(request, 'warning.html', context)
+
+
+def questionnaire_warning(request):
+    q = Questionnaire.objects.order_by('start_date')
+    paginator = Paginator(q, user_setting['warning_page_num'])
+
+    page = request.GET.get('page')
+    try:
+        q = paginator.page(page)
+    except PageNotAnInteger:
+        q = paginator.page(1)
+    except EmptyPage:
+        q = paginator.page(paginator.num_pages)
+
+    context = {"q": q}
+
+    return render(request, 'warning_questionnaire.html', context)

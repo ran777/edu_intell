@@ -45,6 +45,21 @@ $(window).resize(function(){
     resizeSidebar();
 });
 
+function ajaxPage(url, element) {
+    $.get(url, function (data) {
+        $(element).html(data);
+    })
+}
+
+$('#warning-sp2-tab').click(ajaxPage("/warning/questionnaire", '#warning-sp2'));
+
+
+$(document).on('click', '.warning-sp2-page', function () {
+    ajaxPage("/warning/questionnaire?page="+$(this).attr('aria-label'), '#warning-sp2');
+});
+
+
+
 
 // When the user clicks on the button, scroll to the top of the document
 $('#backToTopBtn').click(function(){
