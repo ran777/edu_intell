@@ -2,17 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ae0a10bd-5c27-4372-b419-9aeb682b955b" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/edu_warning/migrations/0002_delete_tag.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/edu_warning/migrations/0003_auto_20171014_0717.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/edu_warning/migrations/0004_historywarning_post_category.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/edu_warning/migrations/0005_auto_20171014_0821.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/edu_warning/migrations/0006_auto_20171014_0836.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/edu_warning/migrations/0007_historywarning_tag.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/edu_warning/migrations/0008_auto_20171014_1529.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/edu_warning/migrations/0009_auto_20171015_0214.py" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/edu_warning/admin.py" afterPath="$PROJECT_DIR$/edu_warning/admin.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/edu_warning/migrations/0001_initial.py" afterPath="$PROJECT_DIR$/edu_warning/migrations/0001_initial.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/edu_warning/models.py" afterPath="$PROJECT_DIR$/edu_warning/models.py" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -30,8 +20,8 @@
       <file leaf-file-name="models.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/edu_warning/models.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="302">
-              <caret line="51" column="0" lean-forward="true" selection-start-line="51" selection-start-column="0" selection-end-line="51" selection-end-column="0" />
+            <state relative-caret-position="795">
+              <caret line="68" column="19" lean-forward="true" selection-start-line="68" selection-start-column="19" selection-end-line="68" selection-end-column="19" />
               <folding />
             </state>
           </provider>
@@ -271,19 +261,25 @@
       <option name="project" value="LOCAL" />
       <updated>1508078988623</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="调查问卷部分建表+测试">
+      <created>1508128628868</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1508128628868</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="ToolWindowManager">
     <frame x="-11" y="-11" width="2278" height="1526" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.22473605" sideWeight="0.5050274" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3295626" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.29125" sideWeight="0.49694657" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.21870287" sideWeight="0.4949726" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.21870287" sideWeight="0.4949726" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="combo" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3299045" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -310,7 +306,8 @@
     <MESSAGE value="汇总历年问题" />
     <MESSAGE value="删除乱码文件" />
     <MESSAGE value="拆分template" />
-    <option name="LAST_COMMIT_MESSAGE" value="拆分template" />
+    <MESSAGE value="调查问卷部分建表+测试" />
+    <option name="LAST_COMMIT_MESSAGE" value="调查问卷部分建表+测试" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -528,8 +525,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/edu_warning/models.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="302">
-          <caret line="51" column="0" lean-forward="true" selection-start-line="51" selection-start-column="0" selection-end-line="51" selection-end-column="0" />
+        <state relative-caret-position="795">
+          <caret line="68" column="19" lean-forward="true" selection-start-line="68" selection-start-column="19" selection-end-line="68" selection-end-column="19" />
           <folding />
         </state>
       </provider>

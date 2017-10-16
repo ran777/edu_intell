@@ -69,3 +69,4 @@ class Option(models.Model):
         default='single',
     )
     value = models.FloatField(null=True, blank=True)
+    num = models.IntegerField(default=0)
