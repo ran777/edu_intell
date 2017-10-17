@@ -18,6 +18,6 @@ from django.contrib import admin
 from edu_warning import views as warning
 
 urlpatterns = [
-    url(r'^warning/', include('edu_warning.urls'), name='warning'),
+    url(r'^warning/', include('edu_warning.urls', namespace='warning')),
     url(r'^admin/', admin.site.urls),
 ]

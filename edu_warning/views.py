@@ -1,8 +1,8 @@
 from django.shortcuts import render
 from django.http import HttpResponse
-from django.db.models import Q
+from django.db.models import Q, F
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
-from .models import HistoryWarning, Questionnaire
+from .models import HistoryWarning, Questionnaire, Question, Option
 
 
 from .tools import get_date, summary_stats, user_setting
@@ -51,3 +51,22 @@ def questionnaire_warning(request):
     context = {"q": q}
 
     return render(request, 'warning_questionnaire.html', context)
+
+
+def questionnaire_detail(request, q_id):
+    if request.method == 'POST':
+        option_id = filter(lambda x: True if x[0].startswith('answer-') else False, request.POST.items())
+        option_id = map(lambda x: int(x[1]), option_id)
+        q = Option.objects.filter(pk__in=option_id)
+        q.update(num=F('num')+1)
+
+        return render(request, 'questionnaire_submit.html', {})
+    else:
+        option_id = Question.objects.filter(questionnaire=q_id)
+        q = [Option.objects.filter(question=i.id) for i in option_id]
+        context = {
+            "q_id": q_id,
+            "qs": zip(option_id, q)
+        }
+
+        return render(request, 'questionnaire_detail.html', context)

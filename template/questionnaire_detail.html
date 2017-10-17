@@ -1,0 +1,31 @@
+{% extends "common.html" %}
+{% load static %}
+
+{% block main %}
+
+<div class="container-fluid main-wrapper">
+    <div>
+        <form action="/warning/questionnaire/{{q_id}}/" method="post">
+            {% csrf_token %}
+            {% for q in qs %}
+
+            <p><b>Q{{forloop.counter}}: {{ q.0.title }}</b></p>
+            {% for i in q.1 %}
+
+            <div class="form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" type="radio" name="answer-{{q.0.id}}" id="{{i.id}}"
+                           value="{{i.id}}" required>
+                    {{ i.title }}
+                </label>
+            </div>
+            {% endfor %}
+<hr>
+            {% endfor %}
+  <button type="submit" class="btn btn-primary">提交</button>
+        </form>
+    </div>
+</div>
+
+{% endblock %}
+

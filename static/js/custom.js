@@ -51,11 +51,11 @@ function ajaxPage(url, element) {
     })
 }
 
-$('#warning-sp2-tab').click(ajaxPage("/warning/questionnaire", '#warning-sp2'));
+$('#warning-sp2-tab').click(ajaxPage("/warning/questionnaire_list", '#warning-sp2'));
 
 
 $(document).on('click', '.warning-sp2-page', function () {
-    ajaxPage("/warning/questionnaire?page="+$(this).attr('aria-label'), '#warning-sp2');
+    ajaxPage("/warning/questionnaire_list?page="+$(this).attr('aria-label'), '#warning-sp2');
 });
 
 
