@@ -1,11 +1,23 @@
-<div class="list-group">
-
-    <table class="list-group-item list-group-item-custom">
-        <th >
-            <td></td>
+ <table class="list-group">
+        <th class="list-group-item list-group-item-custom">
+            <td>问卷名称</td>
+            <td>创建单位</td>
+            <td>开放时间</td>
         </th>
+        {% for q in q %}
+        <tr  class="d-flex row">
+            <td class="col">{{ q.title }}</td>
+            <td class="col text-center">{{ q.creator }}</td>
+            <td class="col text-right">{{ q.date_range }}</td>
+
+        </tr>
+    {% endfor %}
 
     </table>
+
+<div class="list-group">
+
+
     <div class="list-group-item list-group-item-custom">
         <div class="d-flex w-100 justify-content-between">
             <span>问卷名称</span>

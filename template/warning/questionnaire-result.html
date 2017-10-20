@@ -8,10 +8,23 @@
         <h1>{{ questionnaire.title }}</h1>
         <p>{{ questionnaire.content }}</p>
         <hr>
-        {% for q in qs %}
+        {% for q in options %}
 
-        <div class="row" style="height:15em">
-            <div id="main{{forloop.counter}}-1" class="col"></div>
+
+        <div class="row tight-bottom" >
+            <div class="col">
+                <p><b>Q{{forloop.counter}}: {{ q.0.title }}</b></p>
+                <ul>
+                    {% for i in q.1 %}
+
+                    <li class="options {% if i.1 %}red{% endif %}">{{i.0}}</li>
+
+                    {% endfor %}
+                </ul>
+            </div>
+
+            <div id="main{{forloop.counter}}-1" class="col" style="height:14em"></div>
+
         </div>
 
         <hr>
@@ -25,7 +38,7 @@
 {% block echarts %}
 <script type="text/javascript">
 
-    {% for i, j in stats %}
+    {% for i in stats %}
 
     var Chart = echarts.init($('#main{{forloop.counter}}-1')[0], 'walden');
     Chart.setOption({{ i | safe }});

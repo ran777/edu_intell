@@ -116,14 +116,21 @@ def summary_stats(qs1, qs2):
     return res1, res2, list(zip(chart1, chart2))
 
 
-def questionnaire_pie(population, qs, n):
+def questionnaire_pie(qs):
     option_set = map(lambda x: (x.title, x.num), qs)
-    question = qs[0].question.title
-    pie = __add_legend(__pie_data(option_set, 'Q%d: %s' % (n + 1, question)))
-    prefix = []
-    warning_state = list(filter(lambda x: x.num / population > x.value, qs.exclude(value__isnull=True)))
-    if len(warning_state):
-        prefix = '(超出预警值！%.1f%%/%.1f%%)'
-        pie = __warning_this(pie, (i.title for i in warning_state))
-        prefix = map(lambda x: prefix % (x.num / population * 100, x.value * 100), warning_state)
-    return json.dumps(pie), prefix
+    pie = __pie_data(option_set, '')
+    return json.dumps(pie)
+
+
+def option_warning_formatter():
+    pass
+
+
+def option_warning(population, qs):
+    title = [['%s\t(%.2f%%)' % (i.title, i.num/population * 100), 0] for i in qs]
+    for i, q in enumerate(qs):
+        if q.value is not None and q.num/population > q.value:
+
+            title[i][0] += " 超出预警值%.2f%%!" % q.value
+            title[i][1] = 1
+    return title

@@ -2,27 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ae0a10bd-5c27-4372-b419-9aeb682b955b" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template/warning/questionnaire-result.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template/warning/questionnaire-submit.html" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/template/questionnaire_submit.html" afterPath="" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/template/questionnaire_detail.html" afterPath="$PROJECT_DIR$/template/warning/questionnaire-detail.html" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/template/warning.html" afterPath="$PROJECT_DIR$/template/warning/warning.html" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/template/warning_questionnaire.html" afterPath="$PROJECT_DIR$/template/warning/questionnaire-list.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/vcs.xml" afterPath="$PROJECT_DIR$/.idea/vcs.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/category/admin.py" afterPath="$PROJECT_DIR$/category/admin.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/edu_intell/settings.py" afterPath="$PROJECT_DIR$/edu_intell/settings.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/edu_intell/urls.py" afterPath="$PROJECT_DIR$/edu_intell/urls.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/edu_warning/admin.py" afterPath="$PROJECT_DIR$/edu_warning/admin.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/edu_warning/models.py" afterPath="$PROJECT_DIR$/edu_warning/models.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/edu_warning/tools.py" afterPath="$PROJECT_DIR$/edu_warning/tools.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/edu_warning/urls.py" afterPath="$PROJECT_DIR$/edu_warning/urls.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/edu_warning/views.py" afterPath="$PROJECT_DIR$/edu_warning/views.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/static/css/custom.css" afterPath="$PROJECT_DIR$/static/css/custom.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/template/common.html" afterPath="$PROJECT_DIR$/template/common.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/template/design.html" afterPath="$PROJECT_DIR$/template/design.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/template/material.html" afterPath="$PROJECT_DIR$/template/material.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/user_setting.json" afterPath="$PROJECT_DIR$/user_setting.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/template/warning/questionnaire-list.html" afterPath="$PROJECT_DIR$/template/warning/questionnaire-list.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/template/warning/questionnaire-result.html" afterPath="$PROJECT_DIR$/template/warning/questionnaire-result.html" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -60,8 +45,8 @@
       <file leaf-file-name="views.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/edu_warning/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="655">
-              <caret line="86" column="56" lean-forward="false" selection-start-line="86" selection-start-column="56" selection-end-line="86" selection-end-column="56" />
+            <state relative-caret-position="800">
+              <caret line="93" column="5" lean-forward="true" selection-start-line="93" selection-start-column="5" selection-end-line="93" selection-end-column="5" />
               <folding>
                 <element signature="e#0#35#0" expanded="true" />
               </folding>
@@ -72,7 +57,7 @@
       <file leaf-file-name="warning.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/template/warning/warning.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="7">
+            <state relative-caret-position="1566">
               <caret line="63" column="22" lean-forward="true" selection-start-line="63" selection-start-column="22" selection-end-line="63" selection-end-column="22" />
               <folding>
                 <element signature="n#nav#0;n#div#0;n#!!top" expanded="false" />
@@ -83,11 +68,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="tools.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="tools.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/edu_warning/tools.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="881">
-              <caret line="128" column="34" lean-forward="true" selection-start-line="128" selection-start-column="34" selection-end-line="128" selection-end-column="34" />
+            <state relative-caret-position="916">
+              <caret line="135" column="16" lean-forward="true" selection-start-line="135" selection-start-column="16" selection-end-line="135" selection-end-column="16" />
               <folding />
             </state>
           </provider>
@@ -96,8 +81,8 @@
       <file leaf-file-name="questionnaire-detail.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/template/warning/questionnaire-detail.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="174">
-              <caret line="6" column="21" lean-forward="false" selection-start-line="6" selection-start-column="21" selection-end-line="6" selection-end-column="21" />
+            <state relative-caret-position="406">
+              <caret line="14" column="51" lean-forward="true" selection-start-line="14" selection-start-column="51" selection-end-line="14" selection-end-column="51" />
               <folding />
             </state>
           </provider>
@@ -116,11 +101,31 @@
       <file leaf-file-name="questionnaire-result.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/template/warning/questionnaire-result.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="726">
-              <caret line="30" column="36" lean-forward="true" selection-start-line="30" selection-start-column="36" selection-end-line="30" selection-end-column="36" />
+            <state relative-caret-position="377">
+              <caret line="13" column="36" lean-forward="false" selection-start-line="13" selection-start-column="24" selection-end-line="13" selection-end-column="36" />
               <folding>
-                <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#1;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="custom.css" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/static/css/custom.css">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="771">
+              <caret line="195" column="0" lean-forward="true" selection-start-line="195" selection-start-column="0" selection-end-line="195" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="questionnaire-list.html" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/template/warning/questionnaire-list.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="0">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="15" selection-end-column="12" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -163,6 +168,7 @@
   </component>
   <component name="Git.Settings">
     <option name="UPDATE_TYPE" value="MERGE" />
+    <option name="ROOT_SYNC" value="SYNC" />
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="IdeDocumentHistory">
@@ -184,16 +190,17 @@
         <option value="$PROJECT_DIR$/template/common.html" />
         <option value="$PROJECT_DIR$/template/warning.html" />
         <option value="$PROJECT_DIR$/template/questionnaire_detail.html" />
-        <option value="$PROJECT_DIR$/static/css/custom.css" />
         <option value="$PROJECT_DIR$/template/warning_questionnaire.html" />
         <option value="$PROJECT_DIR$/template/warning/questionnaire_result.html" />
         <option value="$PROJECT_DIR$/edu_warning/urls.py" />
         <option value="$PROJECT_DIR$/template/warning/warning.html" />
         <option value="$PROJECT_DIR$/user_setting.json" />
-        <option value="$PROJECT_DIR$/edu_warning/views.py" />
         <option value="$PROJECT_DIR$/template/warning/questionnaire-detail.html" />
+        <option value="$PROJECT_DIR$/edu_warning/views.py" />
         <option value="$PROJECT_DIR$/edu_warning/tools.py" />
         <option value="$PROJECT_DIR$/template/warning/questionnaire-result.html" />
+        <option value="$PROJECT_DIR$/static/css/custom.css" />
+        <option value="$PROJECT_DIR$/template/warning/questionnaire-list.html" />
       </list>
     </option>
   </component>
@@ -204,10 +211,9 @@
     <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="-11" />
-    <option name="y" value="-11" />
-    <option name="width" value="1148" />
-    <option name="height" value="762" />
+    <option name="x" value="-10" />
+    <option name="width" value="1400" />
+    <option name="height" value="1105" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="2" id="Add" />
@@ -395,7 +401,14 @@
       <option name="project" value="LOCAL" />
       <updated>1508249353474</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="问卷结果统计，饼状图，超出阈值的用红色提示">
+      <created>1508460621602</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1508460621602</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -440,7 +453,8 @@
     <MESSAGE value="添加分页" />
     <MESSAGE value="调查问卷添加分页 ajax" />
     <MESSAGE value="填写问卷，提交问卷" />
-    <option name="LAST_COMMIT_MESSAGE" value="填写问卷，提交问卷" />
+    <MESSAGE value="问卷结果统计，饼状图，超出阈值的用红色提示" />
+    <option name="LAST_COMMIT_MESSAGE" value="问卷结果统计，饼状图，超出阈值的用红色提示" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -524,7 +538,7 @@
         <state relative-caret-position="696">
           <caret line="24" column="46" lean-forward="false" selection-start-line="24" selection-start-column="46" selection-end-line="24" selection-end-column="46" />
           <folding>
-            <element signature="e#1147#1154#1" expanded="false" />
+            <element signature="e#1481#1488#1" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -705,6 +719,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="319">
           <caret line="11" column="0" lean-forward="true" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#32#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -766,22 +783,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/static/css/custom.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="319">
-          <caret line="89" column="26" lean-forward="false" selection-start-line="89" selection-start-column="26" selection-end-line="89" selection-end-column="26" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/template/warning/questionnaire-list.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="348">
-          <caret line="12" column="29" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="45" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/edu_warning/urls.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="232">
@@ -802,14 +803,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/user_setting.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="853">
-          <caret line="40" column="5" lean-forward="false" selection-start-line="40" selection-start-column="5" selection-end-line="40" selection-end-column="5" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/edu_warning/models.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="858">
@@ -818,9 +811,19 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/edu_warning/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="800">
+          <caret line="93" column="5" lean-forward="true" selection-start-line="93" selection-start-column="5" selection-end-line="93" selection-end-column="5" />
+          <folding>
+            <element signature="e#0#35#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/template/warning/warning.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="7">
+        <state relative-caret-position="1566">
           <caret line="63" column="22" lean-forward="true" selection-start-line="63" selection-start-column="22" selection-end-line="63" selection-end-column="22" />
           <folding>
             <element signature="n#nav#0;n#div#0;n#!!top" expanded="false" />
@@ -830,38 +833,52 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/edu_warning/views.py">
+    <entry file="file://$PROJECT_DIR$/edu_warning/tools.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="655">
-          <caret line="86" column="56" lean-forward="false" selection-start-line="86" selection-start-column="56" selection-end-line="86" selection-end-column="56" />
-          <folding>
-            <element signature="e#0#35#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="916">
+          <caret line="135" column="16" lean-forward="true" selection-start-line="135" selection-start-column="16" selection-end-line="135" selection-end-column="16" />
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/template/warning/questionnaire-result.html">
+    <entry file="file://$PROJECT_DIR$/user_setting.json">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="726">
-          <caret line="30" column="36" lean-forward="true" selection-start-line="30" selection-start-column="36" selection-end-line="30" selection-end-column="36" />
-          <folding>
-            <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-          </folding>
+        <state relative-caret-position="853">
+          <caret line="40" column="5" lean-forward="false" selection-start-line="40" selection-start-column="5" selection-end-line="40" selection-end-column="5" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/template/warning/questionnaire-detail.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="174">
-          <caret line="6" column="21" lean-forward="false" selection-start-line="6" selection-start-column="21" selection-end-line="6" selection-end-column="21" />
+        <state relative-caret-position="406">
+          <caret line="14" column="51" lean-forward="true" selection-start-line="14" selection-start-column="51" selection-end-line="14" selection-end-column="51" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/edu_warning/tools.py">
+    <entry file="file://$PROJECT_DIR$/template/warning/questionnaire-result.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="881">
-          <caret line="128" column="34" lean-forward="true" selection-start-line="128" selection-start-column="34" selection-end-line="128" selection-end-column="34" />
+        <state relative-caret-position="377">
+          <caret line="13" column="36" lean-forward="false" selection-start-line="13" selection-start-column="24" selection-end-line="13" selection-end-column="36" />
+          <folding>
+            <element signature="n#style#0;n#div#1;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/css/custom.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="771">
+          <caret line="195" column="0" lean-forward="true" selection-start-line="195" selection-start-column="0" selection-end-line="195" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/template/warning/questionnaire-list.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="15" selection-end-column="12" />
           <folding />
         </state>
       </provider>

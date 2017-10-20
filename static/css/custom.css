@@ -187,6 +187,17 @@
 .pagination {
     margin-top: 1.25em;
 }
+.red {
+    color: red;
+}
+.options {
+    padding-bottom: 0.5em;
+}
+
+.tight-bottom {
+    padding-bottom: 0;
+    margin-bottom: -1em;
+}
 
 body {
     padding-top: 80px;

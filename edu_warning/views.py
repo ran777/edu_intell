@@ -5,7 +5,7 @@ from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from .models import HistoryWarning, Questionnaire, Question, Option
 
 
-from .tools import get_date, summary_stats, user_setting, questionnaire_pie
+from .tools import get_date, summary_stats, user_setting, questionnaire_pie, option_warning
 # Create your views here.
 
 
@@ -84,12 +84,13 @@ def questionnaire_result(request, q_id):
     question = Question.objects.filter(questionnaire=q_id)
     population = title.population
     q = [Option.objects.filter(question=i.id) for i in question]
-    result = map(questionnaire_pie, [population]*len(q), q, range(len(q)))
+    result = map(questionnaire_pie, q)
+    options = map(option_warning, [population]*len(q), q)
     context = {
         "page_now": "问卷结果",
         'questionnaire': title,
-        "qs": zip(question, q),
         "stats": result,
+        "options": zip(question, options),
     }
 
     return render(request, 'warning/questionnaire-result.html', context)
