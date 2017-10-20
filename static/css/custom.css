@@ -1,20 +1,20 @@
 :root {
     --main-bg-color: #3fb1e3;
-    --content-border: 1px solid #ddd;
     --content-bg-color: #fff;
     --main-color: #000;
 }
 #sidebar {
     background-color: var(--main-bg-color);
     color: var(--main-color);
-    border-color: var(--content-border);
     position: fixed;
     top: 80px;
     right: 0;
     left: 0;
     z-index: 1030;
 }
-
+.icon-md {
+    height: 1.25em;
+}
 .navbar-brand img {
     height: 40px;
 }
@@ -88,7 +88,6 @@
 .questionnaire {
     background-color: #fff;
     padding: 1em 1.5em 0.5em;
-    border: var(--content-border);
     margin-bottom: 1em;
 }
 .tab-content {
@@ -178,6 +177,24 @@
 
 .main-wrapper.tab-content {
     border: 1px solid #ddd;
+}
+
+
+.table-custom th, .table-custom td {
+    padding: 1.5em;
+    border: 0;
+}
+
+.table-custom thead {
+    background-color: var(--main-bg-color);
+    color: var(--content-bg-color);
+}
+
+.table-custom .row {
+    margin: 0;
+    /*border: var(--content-border);*/
+    /*border-top: none;*/
+
 }
 
 .main-wrapper.tab-content.card-columns {
