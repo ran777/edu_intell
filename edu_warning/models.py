@@ -44,6 +44,8 @@ class Questionnaire(models.Model):
     end_date = models.DateField()
     creator = models.ForeignKey('auth.User')
     content = models.TextField(null=True, blank=True)
+    population = models.IntegerField(default=0)
+    status = models.BooleanField(default=False)
 
     def __str__(self):
         return self.title
@@ -72,4 +74,5 @@ class Option(models.Model):
         default='single',
     )
     value = models.FloatField(null=True, blank=True)
+    order = models.IntegerField(default=1)
     num = models.IntegerField(default=0)

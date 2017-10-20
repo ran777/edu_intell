@@ -4,7 +4,10 @@
 {% block main %}
 
 <div class="container-fluid main-wrapper">
-    <div>
+    <div class="col-9 justify-content-center container questionnaire">
+        <h1>{{ questionnaire.title }}</h1>
+        <p>{{ questionnaire.content }}</p>
+        <hr>
         <form action="/warning/questionnaire/{{q_id}}/" method="post">
             {% csrf_token %}
             {% for q in qs %}

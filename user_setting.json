@@ -6,5 +6,38 @@
   "warning_template_1": "近%d年来， %s月间共发生%s，推荐重点关注“<b>%s</b>”问题, 进行“<b>%s</b>”。",
   "warning_template_2": "%s %s",
   "warning_template_3": "近%d年来， %s月间无此类问题。",
-  "warning_page_num": 1
+  "warning_page_num": 1,
+  "warning_bar_title": "%s月份重点问题(%d~%d年)",
+  "warning_bar": {
+        "title": {
+            "text": ""
+        },
+        "tooltip": {"trigger": "axis",
+                    "axisPointer": {"type": "shadow"}},
+        "legend": {},
+        "xAxis": {
+            "splitLine": {"show": false}
+        },
+        "yAxis": {"minInterval": 1},
+        "series": [{
+            "type": "bar",
+            "barWidth": "60%"
+        }]
+    },
+  "warning_pie_title": "%s月份实施教育(%d~%d年)",
+  "warning_pie": {
+        "textStyle": {"fontSize": 16},
+        "tooltip": {},
+
+        "title": {
+            "text": ""
+        },
+        "series": [
+            {
+                "type": "pie",
+                "radius": "55%"
+            }
+        ]
+    }
+
 }

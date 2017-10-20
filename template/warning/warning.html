@@ -24,17 +24,18 @@
                 <div class="card-deck mb-3">
                     {% for card in cards_with_figure %}
                     <div class="card">
-                        <div class="card-header  text-center text-white bg-info ">{{ card.0 }}</div>
+                        <div id='{{card.0}}_id' class="card-header text-center text-white" style="cursor:hand">{{ card.0 }}</div>
+
                         <div class="card-body">
                             <p class="card-text">{{ card.1|safe }}</p>
                         </div>
                     </div>
                     {% endfor %}
                 </div>
-                <div class="card-deck justify-content-md-center col-8">
+                <div class="card-deck">
                     {% for card in cards %}
                     <div class="card col">
-                        <div class="card-header  text-center text-white bg-info">{{ card.0 }}</div>
+                        <div class="card-header  text-center text-white">{{ card.0 }}</div>
                         <div class="card-body">
                             <ul>
                                 {% for i in card.1 %}
@@ -49,11 +50,25 @@
 
             </div>
             <div class="result">
-                <h4>任务特点</h4>
+                {% for i, j in charts %}
+                {% if i.1 != 'null'  %}
+                <h4 id="{{i.0}}">{{ i.0 }}</h4>
                 <hr>
-            </div>
+                <div class="row" style="height:20em">
+                    <div id="main{{forloop.counter}}-1" class="col" >
 
+                    </div>
+                    <div id="main{{forloop.counter}}-2" class="col">
+
+                    </div>
+                </div>
+                {% endif%}
+                {% endfor %}
+
+            </div>
         </div>
+
+
         <div class="tab-pane fade show" id="warning-sp2" role="tabpanel" aria-labelledby="warning-sp2-tab">
             这是调查问卷
         </div>
@@ -64,5 +79,20 @@
 
 </div>
 
+{% endblock %}
+
+{% block echarts %}
+<script type="text/javascript">
+
+    var Chart
+    {% for i, j in charts %}
+    $('#{{i.0}}_id').click(function(){$('html,body').animate({scrollTop: $('#{{i.0}}').offset().top-80}, 200);});
+    Chart = echarts.init($('#main{{forloop.counter}}-1')[0], 'walden');
+    Chart.setOption({{i.1 | safe}});
+    Chart = echarts.init($('#main{{forloop.counter}}-2')[0], 'walden');
+    Chart.setOption({{j.1 | safe}});
+    {% endfor %}
+
+</script>
 {% endblock %}
 

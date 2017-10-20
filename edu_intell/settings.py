@@ -31,12 +31,14 @@ ALLOWED_HOSTS = ['120.77.253.186', 'localhost', '127.0.0.1', ]
 # Application definition
 
 INSTALLED_APPS = [
+    'nested_admin',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+
     'category',
     'edu_warning',
 ]

@@ -1,0 +1,37 @@
+{% extends "common.html" %}
+{% load static %}
+
+{% block main %}
+
+<div class="container-fluid main-wrapper">
+    <div class="col-9 justify-content-center container questionnaire">
+        <h1>{{ questionnaire.title }}</h1>
+        <p>{{ questionnaire.content }}</p>
+        <hr>
+        {% for q in qs %}
+
+        <div class="row" style="height:15em">
+            <div id="main{{forloop.counter}}-1" class="col"></div>
+        </div>
+
+        <hr>
+        {% endfor %}
+    </div>
+</div>
+
+{% endblock %}
+
+
+{% block echarts %}
+<script type="text/javascript">
+
+    {% for i, j in stats %}
+
+    var Chart = echarts.init($('#main{{forloop.counter}}-1')[0], 'walden');
+    Chart.setOption({{ i | safe }});
+
+
+    {% endfor %}
+
+</script>
+{% endblock %}

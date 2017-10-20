@@ -20,4 +20,5 @@ from edu_warning import views as warning
 urlpatterns = [
     url(r'^warning/', include('edu_warning.urls', namespace='warning')),
     url(r'^admin/', admin.site.urls),
+    url(r'^nested_admin/', include('nested_admin.urls')),
 ]
