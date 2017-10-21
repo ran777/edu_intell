@@ -84,13 +84,18 @@
 {% block echarts %}
 <script type="text/javascript">
 
-    var Chart
+    var Chart;
     {% for i, j in charts %}
-    $('#{{i.0}}_id').click(function(){$('html,body').animate({scrollTop: $('#{{i.0}}').offset().top-80}, 200);});
-    Chart = echarts.init($('#main{{forloop.counter}}-1')[0], 'walden');
-    Chart.setOption({{i.1 | safe}});
-    Chart = echarts.init($('#main{{forloop.counter}}-2')[0], 'walden');
-    Chart.setOption({{j.1 | safe}});
+    var fig_box = $('#main{{forloop.counter}}-1');
+    if (fig_box.length > 0) {
+        $('#{{i.0}}_id').click(function () {
+            $('html,body').animate({scrollTop: $('#{{i.0}}').offset().top - 80}, 200);
+        });
+        Chart = echarts.init(fig_box[0], 'walden');
+        Chart.setOption({{ i.1 | safe }});
+        Chart = echarts.init($('#main{{forloop.counter}}-2')[0], 'walden');
+        Chart.setOption({{j.1 | safe}});
+    }
     {% endfor %}
 
 </script>
