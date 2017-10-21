@@ -56,26 +56,25 @@ def questionnaire_warning(request):
 def questionnaire_detail(request, q_id):
     if request.method == 'POST':
         option_id = filter(lambda x: True if x[0].startswith('answer-') else False, request.POST.items())
-        option_id = map(lambda x: int(x[1]), option_id)
+        option_id = list(map(lambda x: int(x[1]), option_id))
         q = Option.objects.filter(pk__in=option_id)
         q.update(num=F('num')+1)
         q = Questionnaire.objects.get(pk=q_id)
         q.population += 1
         q.save()
 
-        return render(request, 'warning/questionnaire-submit.html', {})
-    else:
-        title = Questionnaire.objects.get(pk=q_id)
-        option_id = Question.objects.filter(questionnaire=q_id)
-        q = [Option.objects.filter(question=i.id).order_by('order') for i in option_id]
-        context = {
-            "page_now": "调查问卷",
-            'questionnaire': title,
-            "q_id": q_id,
-            "qs": zip(option_id, q)
-        }
+    title = Questionnaire.objects.get(pk=q_id)
+    option_id = Question.objects.filter(questionnaire=q_id)
+    q = [Option.objects.filter(question=i.id).order_by('id') for i in option_id]
+    context = {
+        "is_post": bool(request.method == 'POST'),
+        "page_now": "调查问卷",
+        'questionnaire': title,
+        "q_id": q_id,
+        "qs": zip(option_id, q)
+    }
 
-        return render(request, 'warning/questionnaire-detail.html', context)
+    return render(request, 'warning/questionnaire-detail.html', context)
 
 
 def questionnaire_result(request, q_id):
@@ -83,7 +82,7 @@ def questionnaire_result(request, q_id):
     title = Questionnaire.objects.get(pk=q_id)
     question = Question.objects.filter(questionnaire=q_id)
     population = title.population
-    q = [Option.objects.filter(question=i.id) for i in question]
+    q = [Option.objects.filter(question=i.id).order_by('id') for i in question]
     result = map(questionnaire_pie, q)
     options = map(option_warning, [population]*len(q), q)
     context = {

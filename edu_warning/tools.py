@@ -122,15 +122,11 @@ def questionnaire_pie(qs):
     return json.dumps(pie)
 
 
-def option_warning_formatter():
-    pass
-
-
 def option_warning(population, qs):
-    title = [['%s\t(%.2f%%)' % (i.title, i.num/population * 100), 0] for i in qs]
+    title = [['%s (%.2f%%)' % (i.title, i.num/population * 100), 0] for i in qs]
     for i, q in enumerate(qs):
         if q.value is not None and q.num/population > q.value:
 
-            title[i][0] += " 超出预警值%.2f%%!" % q.value
+            title[i][0] += " 超出预警值%.2f%%!" % (q.value*100)
             title[i][1] = 1
     return title

@@ -1,6 +1,6 @@
 $(function () {
     $('[data-toggle="popover"]').popover()
-})
+});
 
 $(".superPopover").popover({ trigger: "manual" , html: true, animation:false})
 .on("mouseenter", function () {
@@ -29,11 +29,9 @@ function scrollFunction() {
     } else {
         document.getElementById("backToTopBtn").style.display = "none";
     }
-};
+}
 
-$(document).ready(function(){
-resizeSidebar();
-});
+
 window.onscroll = function() {scrollFunction()};
 
 function resizeSidebar() {
@@ -59,9 +57,12 @@ $(document).on('click', '.warning-sp2-page', function () {
 });
 
 
-
-
 // When the user clicks on the button, scroll to the top of the document
 $('#backToTopBtn').click(function(){
     $('html,body').animate({scrollTop:0},'fast');return false;
+});
+
+
+$(document).ready(function () {
+    resizeSidebar();
 });

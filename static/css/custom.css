@@ -2,6 +2,12 @@
     --main-bg-color: #3fb1e3;
     --content-bg-color: #fff;
     --main-color: #000;
+    --color-1: #3fb1e3;
+    --color-2: #6be6c1;
+    --color-3: #626c91;
+    --color-4: #a0a7e6;
+    --color-5: #c4ebad;
+    --color-6: #96dee8;
 }
 #sidebar {
     background-color: var(--main-bg-color);
@@ -22,6 +28,12 @@
     height: 1.7em;
     width: auto;
     fill: white;
+}
+
+.icon-success {
+    fill: var(--color-2);
+    height: 10em;
+    width: auto;
 }
 
 .svg-sprite {
