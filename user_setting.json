@@ -6,7 +6,7 @@
   "warning_template_1": "近%d年来， %s月间共发生%s，推荐重点关注“<b>%s</b>”问题, 进行“<b>%s</b>”。",
   "warning_template_2": "%s %s",
   "warning_template_3": "近%d年来， %s月间无此类问题。",
-  "warning_page_num": 1,
+  "warning_page_num": 15,
   "warning_bar_title": "%s月份重点问题(%d~%d年)",
   "warning_bar": {
         "title": {

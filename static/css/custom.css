@@ -15,6 +15,14 @@
 .icon-md {
     height: 1.25em;
 }
+
+.icon-lg {
+    height: 1.75em;
+    width: 1.75em;
+    fill: white;
+}
+
+
 .navbar-brand img {
     height: 40px;
 }
