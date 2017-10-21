@@ -13,15 +13,20 @@
     z-index: 1030;
 }
 .icon-md {
-    height: 1.25em;
+    width:1.5em;
+    height: auto;
+    fill: #222;
 }
 
 .icon-lg {
-    height: 1.75em;
-    width: 1.75em;
+    height: 1.7em;
+    width: auto;
     fill: white;
 }
 
+.svg-sprite {
+    display: none;
+}
 
 .navbar-brand img {
     height: 40px;
@@ -189,8 +194,13 @@
 
 
 .table-custom th, .table-custom td {
+    vertical-align: middle;
     padding: 1.5em;
     border: 0;
+}
+.table-custom td a {
+    display: inline-block;
+    vertical-align: middle;
 }
 
 .table-custom thead {

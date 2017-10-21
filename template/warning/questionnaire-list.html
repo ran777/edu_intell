@@ -1,4 +1,5 @@
 {% load static %}
+{% load icon %}
 <div class="p-3">
     <table class="table table-hover table-custom border" cellspacing="0" cellpadding="0">
         <thead>
@@ -7,18 +8,22 @@
             <th class="d-inline-block col-4">问卷名称</th>
             <th class="d-inline-block col-4">创建单位</th>
             <th class="d-inline-block col-3">开放时间</th>
+
         </tr>
         </thead>
         <!--<tbody>-->
-            {% for q in q %}
+        {% for q in q %}
         <tr class="row">
 
             <th class="d-inline-block col-1">{{ forloop.counter }}</th>
 
-            <td class="d-inline-block col-4"><a href="questionnaire/{{q.id}}/" target="_blank">{{ q.title }}</a>&nbsp;
-             <a href="questionnaire/{{q.id}}/result/" target="_blank">
-                 <img class="icon-md" src="{% static 'svg/si-glyph-view.svg' %}"/>
-             </a>
+            <td class="d-inline-block col-4">
+
+                <a href="questionnaire/{{q.id}}/" target="_blank">{{ q.title }}</a>
+                &nbsp;
+                <a href="questionnaire/{{q.id}}/result/" target="_blank">
+                    {% svg_icon "view" "icon-md"%}
+                </a>
             </td>
 
             <td class="d-inline-block col-4">{{ q.creator }}</td>

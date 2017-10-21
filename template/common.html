@@ -1,4 +1,5 @@
 {% load static %}
+{% load icon %}
 <html lang="zh-CN">
 
 <head>
@@ -63,7 +64,7 @@
 
             <li class="nav-item">
                 <a class="nav-item nav-link" href="#">
-                    <img class="icon-lg" src="{% static 'svg/ic_mail_white.svg'%}" />
+                    {% svg_icon "message" "icon-lg" %}
 
                 </a>
             </li>
@@ -91,6 +92,7 @@
 <a href="#top" id="backToTopBtn" class="well well-sm">top</a>
 <!-- Optional JavaScript -->
 <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+{% include "include_svg_icon_sprite.html" %}
 <script src="{% static 'js/jquery-3.2.1.min.js' %}"></script>
 
 <script src="{% static 'js/propper.js' %}"></script>
