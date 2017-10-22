@@ -9,6 +9,12 @@
     --color-5: #c4ebad;
     --color-6: #96dee8;
 }
+.svg-white {
+    fill: var(--content-bg-color);
+}
+.svg-blue {
+    fill: var(--color-1);
+}
 #sidebar {
     background-color: var(--main-bg-color);
     color: var(--main-color);
@@ -26,9 +32,6 @@
 .icon-md {
     width:1.5em;
     height: auto;
-}
-.icon-info {
-    fill: var(--color-1);
 }
 
 .icon-lg {
