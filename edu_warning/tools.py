@@ -14,7 +14,7 @@ def __common_tag_topic(q):
     tag_counter = Counter(sum((i.list_tags() for i in q), []))
     topic_counter = Counter(sum((i.list_edu_category() for i in q), []))
     if len(tag_counter):
-        problems = ', '.join(str(v) + '起' + k for (k, v) in tag_counter.most_common(user_setting['warning_num']))
+        problems = list(tag_counter.most_common(user_setting['warning']['num']))
         return problems, tag_counter, topic_counter
 
     return None
@@ -22,24 +22,25 @@ def __common_tag_topic(q):
 
 def __template1(x):
     if x[0] is None:
-        return x[1], user_setting['warning_template_3'] % (
-            user_setting['warning_year'],
+        return x[1], user_setting['warning']['template_3'] % (
+            user_setting['warning']['year'],
             '~'.join([str(i) for i in month])
-        )
-    return x[1], user_setting['warning_template_1'] % (
-        user_setting['warning_year'], '~'.join([str(i) for i in month]),
+        ), False
+    return (
+        x[1],
+        user_setting['warning']['template_1'] % (user_setting['warning']['year'], '~'.join([str(i) for i in month])),
+        True,
         x[0][0],
-        x[0][1].most_common(1)[0][0],
-        x[0][2].most_common(1)[0][0]
+        x[0][1].most_common(1)[0][0], x[0][2].most_common(1)[0][0]
     )
 
 
 def __template2(x):
     if len(x[0]):
-        return x[1], [user_setting["warning_template_2"] %
+        return x[1], [user_setting['warning']['template_2'] %
                       (i.date.strftime("%m-%d"), i.title) for i in x[0].order_by('date')]
-    return x[1], user_setting['warning_template_3'] % (
-        user_setting['warning_year'],
+    return x[1], user_setting['warning']['template_3'] % (
+        user_setting['warning']['year'],
         '~'.join([str(i) for i in month])
     )
 
@@ -48,8 +49,8 @@ def __bar_data(data):
     if data is not None:
         m = '~'.join([str(i) for i in month])
         years = [i.year for i in date_range]
-        fig = user_setting['warning_bar']
-        fig['title']['text'] = user_setting['warning_bar_title'] % (
+        fig = user_setting['warning']['bar']
+        fig['title']['text'] = user_setting['warning']['bar_title'] % (
             m, years[0], years[1]
         )
         fig["xAxis"]["data"] = [i for i in data[1].keys()]
@@ -59,7 +60,7 @@ def __bar_data(data):
 
 def __pie_data(data, title):
     if data is not None:
-        fig = user_setting['warning_pie']
+        fig = user_setting['warning']['pie']
         fig['title']['text'] = title
         fig["series"][0]["data"] = [{'name': i, 'value': j} for i, j in data]
         return fig
@@ -91,7 +92,7 @@ def get_date():
     today = date.today()
 
     date_range = (
-        date(today.year - user_setting['warning_year'] + 1, today.month, 1),
+        date(today.year - user_setting['warning']['year'] + 1, today.month, 1),
         today + relativedelta(months=+1)
     )
     month = (today.month, date_range[1].month)
@@ -100,18 +101,18 @@ def get_date():
 
 def summary_stats(qs1, qs2):
     prams = list(map(__common_tag_topic, qs1))
-    res1 = map(__template1, zip(prams, user_setting["warning_title"][:3]))
-    res2 = map(__template2, zip(qs2, user_setting['warning_title'][-2:]))
-    chart2_title = user_setting['warning_pie_title'] % (
+    res1 = map(__template1, zip(prams, user_setting['warning']['title'][:3]))
+    res2 = map(__template2, zip(qs2, user_setting['warning']['title'][-2:]))
+    chart2_title = user_setting['warning']['pie_title'] % (
         '~'.join([str(i) for i in month]),
         date_range[0].year,
         date_range[1].year
     )
     topics = map(lambda x: x[-1].items() if x is not None else None, prams)
 
-    chart1 = map(lambda x: [x[1], json.dumps(__bar_data(x[0]))], zip(prams, user_setting["warning_title"][:3]))
+    chart1 = map(lambda x: [x[1], json.dumps(__bar_data(x[0]))], zip(prams, user_setting['warning']['title'][:3]))
     chart2 = map(lambda x: [x[1], json.dumps(__pie_data(x[0], chart2_title))],
-                 zip(topics, user_setting["warning_title"][:3]))
+                 zip(topics, user_setting['warning']['title'][:3]))
 
     return res1, res2, list(zip(chart1, chart2))
 

@@ -1,5 +1,6 @@
 {% extends "common.html" %}
 {% load static %}
+{% load icon %}
 
 {% block main %}
 
@@ -24,13 +25,28 @@
                 <div class="card-deck mb-3">
                     {% for card in cards_with_figure %}
                     <div class="card">
-                        <div id='{{card.0}}_id' class="card-header text-center text-white" style="cursor:hand">{{ card.0 }}</div>
+                        <div id='{{card.0}}_id' class='card-header text-center text-white' style="cursor:hand">{{ card.0}}
+                        </div>
 
                         <div class="card-body">
-                            <p class="card-text">{{ card.1|safe }}</p>
+                            <span class="card-text">{{ card.1 }}</span>
+                            {% if card.2 %}
+                            <ul>
+                                {% for i in card.3 %}
+                                <li>“{{ i.0 }}”{{ i.1 }}起
+                                    <a tabindex='0' class="warning_popAjax" data-toggle='popover' data-trigger='focus' data-html='true' data-title='{{ i.0 }}' style='color:#000;cursor:hand'
+                                       q_category="{{forloop.parentloop.counter0}}" q_type="p">
+                                    {% svg_icon "info" "icon-sm" %}
+                                    </a>
+                                </li>
+                                {% endfor %}
+                            </ul>
+                            <span>推荐侧重“<b>{{card.5}}</b>”。</span>
+                            {% endif %}
                         </div>
                     </div>
                     {% endfor %}
+
                 </div>
                 <div class="card-deck">
                     {% for card in cards %}
@@ -76,6 +92,7 @@
             这是思想动态
         </div>
     </div>
+
 
 </div>
 

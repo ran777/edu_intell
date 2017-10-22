@@ -9,11 +9,10 @@ from .tools import get_date, summary_stats, user_setting, questionnaire_pie, opt
 # Create your views here.
 
 
-def history_warning(request):
+def __basic_history_info():
     date_range, m = get_date()
-
-    q_list = HistoryWarning.objects.filter(Q(date__month=m[0]) | Q(date__month=m[1]))
-    q_data_range = q_list.filter(date__range=date_range)
+    q_m = (Q(date__month=m[0]) | Q(date__month=m[1]))
+    q_y = Q(date__range=date_range)
     summary_category = (
         '教育计划预警',
         '倾向性问题预警',
@@ -21,24 +20,45 @@ def history_warning(request):
         '重大节日庆典预警',
         '敏感时节预警',
     )
+
+    return q_m, q_y, summary_category
+
+
+def history_warning(request):
+    q_m, q_y, summary_category = __basic_history_info()
+    q_list = HistoryWarning.objects.filter(q_m)
+    q_data_range = q_list.filter(q_y)
     qs1 = map(lambda x: q_data_range.filter(post_category__name=x), summary_category[:3])
     qs2 = map(lambda x: q_list.filter(post_category__name=x), summary_category[-2:])
-
     summary1, summary2, charts = summary_stats(qs1, qs2)
     context = {
         "page_now": "预警研判",
         "cards_with_figure": summary1,
         "cards": summary2,
         'charts': charts,
-
     }
 
     return render(request, 'warning/warning.html', context)
 
 
+def history_detail(request):
+    q_type = request.GET.get('type')
+    if q_type is None:
+        return
+    context = {"q_type": q_type}
+    q_m, q_y, summary_category = __basic_history_info()
+    q_category = Q(post_category__name=summary_category[int(request.GET.get('category'))])
+    keyword = request.GET.get('keyword')
+    if q_type == 'p':   # 问题详情
+        context['query'] = HistoryWarning.objects.filter(q_m & q_y & q_category & Q(tag__name=keyword)).order_by("date")
+
+    return render(request, 'warning/warning_detail.html', context)
+
+
 def questionnaire_warning(request):
     q = Questionnaire.objects.filter(status=True).order_by('start_date')
-    paginator = Paginator(q, user_setting['warning_page_num'])
+    # q = Questionnaire.objects.all().order_by('start_date')
+    paginator = Paginator(q, user_setting['warning']['page_num'])
 
     page = request.GET.get('page')
     try:

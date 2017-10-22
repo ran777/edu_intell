@@ -1,6 +1,11 @@
-$(function () {
-    $('[data-toggle="popover"]').popover()
-});
+function ajaxData(url, element) {
+    $.get(url, function (data) {
+        $(element).html(data);
+    })
+}
+// $(function () {
+//     $('[data-toggle="popover"]').popover()
+// });
 
 $(".superPopover").popover({ trigger: "manual" , html: true, animation:false})
 .on("mouseenter", function () {
@@ -22,6 +27,19 @@ $(".superPopover").popover({ trigger: "manual" , html: true, animation:false})
     }, 200);
 });
 
+$(".warning_popAjax").click(
+    function () {
+        var pop = $(this);
+        var type = pop.attr("q_type");
+        var category = pop.attr("q_category");
+        var keyword = pop.attr("data-title");
+        var url = "/warning/detail/?type="+type+"&category="+category+"&keyword="+keyword;
+        $.get(url, function (data) {
+            pop.attr("data-content",(data));
+            pop.popover('show')
+        })
+    }
+);
 
 function scrollFunction() {
     if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
@@ -36,8 +54,8 @@ window.onscroll = function() {scrollFunction()};
 
 function resizeSidebar() {
     var h = $(window).height();
-    $("#sidebar .list-group").css("height", h-140);
-};
+    $("#sidebar,.list-group").css("height", h-140); //加了个逗号
+}
 
 $(window).resize(function(){
     resizeSidebar();

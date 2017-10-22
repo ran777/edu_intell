@@ -18,10 +18,17 @@
     left: 0;
     z-index: 1030;
 }
+
+.icon-sm {
+    width:1em;
+    height: auto;
+}
 .icon-md {
     width:1.5em;
     height: auto;
-    fill: #222;
+}
+.icon-info {
+    fill: var(--color-1);
 }
 
 .icon-lg {
@@ -204,7 +211,9 @@
     border: 1px solid #ddd;
 }
 
-
+li, li a {
+    vertical-align: middle;
+}
 .table-custom th, .table-custom td {
     vertical-align: middle;
     padding: 1.5em;
@@ -215,6 +224,10 @@
     vertical-align: middle;
 }
 
+.table-custom td a {
+    display: inline-block;
+    vertical-align: middle;
+}
 .table-custom thead {
     background-color: var(--main-bg-color);
     color: var(--content-bg-color);
