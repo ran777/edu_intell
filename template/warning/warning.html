@@ -145,7 +145,7 @@
     $(document).on('click', '.festival_modal', function () {
         var id = $(this).attr("q_id");
         var name = $(this).attr("q_name");
-        $.get("http://127.0.0.1:8000/warning/detail/?type=ff&category=3&id="+id, function (data) {
+        $.get("/warning/detail/?type=ff&category=3&id="+id, function (data) {
         $(".modal-title").html(name);
         $(".modal-body").html(data);
         $('#festivalModal').modal("show");

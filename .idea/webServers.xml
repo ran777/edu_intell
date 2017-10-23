@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="WebServers">
+    <option name="servers">
+      <webServer id="712d08bb-9425-4db7-9773-095dbe03da29" name="120.77.253.186" url="http://120.77.253.186">
+        <fileTransfer host="120.77.253.186" port="22" rootFolder="/var/www/edu_intell" accessType="SFTP">
+          <advancedOptions>
+            <advancedOptions dataProtectionLevel="Private" />
+          </advancedOptions>
+          <option name="port" value="22" />
+        </fileTransfer>
+      </webServer>
+    </option>
+  </component>
+</project>
