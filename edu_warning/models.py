@@ -6,7 +6,6 @@ class HistoryWarning(models.Model):
     title = models.CharField(max_length=100)
     date = models.DateField()
     content = models.TextField(null=True, blank=True)
-    attachment = models.CharField(max_length=200, null=True, blank=True)
 
     edu_category = models.ManyToManyField(
         'category.EduCategory',

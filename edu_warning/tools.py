@@ -2,6 +2,7 @@ from datetime import date
 from dateutil.relativedelta import relativedelta
 from collections import Counter
 import json
+from django.db.models import Q
 
 month = ''
 date_range = []
@@ -87,7 +88,7 @@ def __warning_this(fig, title):
     return fig
 
 
-def get_date():
+def __get_date():
     global month, date_range
     today = date.today()
 
@@ -97,6 +98,21 @@ def get_date():
     )
     month = (today.month, date_range[1].month)
     return date_range, month
+
+
+def basic_history_info():
+    __get_date()
+    q_m = (Q(date__month=month[0]) | Q(date__month=month[1]))
+    q_y = Q(date__range=date_range)
+    summary_category = (
+        '教育计划预警',
+        '倾向性问题预警',
+        '一人一事思想工作预警',
+        '重大节日庆典预警',
+        '敏感时节预警',
+    )
+
+    return q_m, q_y, summary_category
 
 
 def summary_stats(qs1, qs2):

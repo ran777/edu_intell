@@ -3,29 +3,15 @@ from django.http import HttpResponse
 from django.db.models import Q, F
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from .models import HistoryWarning, Questionnaire, Question, Option
+from uploadfiles.models import UploadFile
 
 
-from .tools import get_date, summary_stats, user_setting, questionnaire_pie, option_warning
+from .tools import summary_stats, user_setting, questionnaire_pie, option_warning, basic_history_info
 # Create your views here.
 
 
-def __basic_history_info():
-    date_range, m = get_date()
-    q_m = (Q(date__month=m[0]) | Q(date__month=m[1]))
-    q_y = Q(date__range=date_range)
-    summary_category = (
-        '教育计划预警',
-        '倾向性问题预警',
-        '一人一事思想工作预警',
-        '重大节日庆典预警',
-        '敏感时节预警',
-    )
-
-    return q_m, q_y, summary_category
-
-
 def history_warning(request):
-    q_m, q_y, summary_category = __basic_history_info()
+    q_m, q_y, summary_category = basic_history_info()
     q_list = HistoryWarning.objects.filter(q_m)
     q_data_range = q_list.filter(q_y)
     qs1 = map(lambda x: q_data_range.filter(post_category__name=x), summary_category[:3])
@@ -46,11 +32,18 @@ def history_detail(request):
     if q_type is None:
         return
     context = {"q_type": q_type}
-    q_m, q_y, summary_category = __basic_history_info()
+    q_m, q_y, summary_category = basic_history_info()
     q_category = Q(post_category__name=summary_category[int(request.GET.get('category'))])
     keyword = request.GET.get('keyword')
     if q_type == 'p':   # 问题详情
         context['query'] = HistoryWarning.objects.filter(q_m & q_y & q_category & Q(tag__name=keyword)).order_by("date")
+    if q_type == 'f':   # 节日详情
+        q = HistoryWarning.objects.get(q_category & Q(title=keyword))
+        context['title'] = q.title
+        context['description'] = q.content
+        context['query'] = UploadFile.objects.filter(festival=q.id)
+    if q_type == 'ff':   # 方案详情
+        context['file'] = UploadFile.objects.get(pk=int(request.GET.get('id')))
 
     return render(request, 'warning/warning_detail.html', context)
 

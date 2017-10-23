@@ -71,22 +71,30 @@
                 <h4 id="{{i.0}}">{{ i.0 }}</h4>
                 <hr>
                 <div class="row" style="height:20em">
-                    <div id="main{{forloop.counter}}-1" class="col" >
+                    <div id="main{{forloop.counter}}-1" class="col-6" >
 
                     </div>
-                    <div id="main{{forloop.counter}}-2" class="col">
+                    <div id="main{{forloop.counter}}-2" class="col-6">
 
                     </div>
                 </div>
                 {% endif%}
                 {% endfor %}
+                <h4 id="1">重大节日</h4>
+                <hr>
+                <div class="row m-2" id="festival">
 
+                </div>
+                <hr>
             </div>
-        </div>
 
+
+
+        </div>
 
         <div class="tab-pane fade show" id="warning-sp2" role="tabpanel" aria-labelledby="warning-sp2-tab">
             这是调查问卷
+
         </div>
         <div class="tab-pane fade show" id="warning-sp3" role="tabpanel" aria-labelledby="warning-sp3-tab">
             这是思想动态
@@ -95,7 +103,24 @@
 
 
 </div>
-
+<div class="modal fade" id="festivalModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+  <div class="modal-dialog  modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="festivalModalTitle">file.title</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        。。。
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">关闭</button>
+      </div>
+    </div>
+  </div>
+</div>
 {% endblock %}
 
 {% block echarts %}
@@ -114,6 +139,19 @@
         Chart.setOption({{j.1 | safe}});
     }
     {% endfor %}
+    $.get("/warning/detail/?type=f&category=3&keyword=重阳节", function (data) {
+        $("#festival").html(data);
+    });
+    $(document).on('click', '.festival_modal', function () {
+        var id = $(this).attr("q_id");
+        var name = $(this).attr("q_name");
+        $.get("http://127.0.0.1:8000/warning/detail/?type=ff&category=3&id="+id, function (data) {
+        $(".modal-title").html(name);
+        $(".modal-body").html(data);
+        $('#festivalModal').modal("show");
+    });
+
+    })
 
 </script>
 {% endblock %}
