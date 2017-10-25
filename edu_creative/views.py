@@ -2,50 +2,52 @@ from django.shortcuts import render
 from django.http import HttpResponse
 from django.db.models import Q, F
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
-# from .models import HistoryWarning, Questionnaire, Question, Option
+from posts.models import Posts
 from uploadfiles.models import UploadFile
 
 
-# from .tools import summary_stats, user_setting, questionnaire_pie, option_warning, basic_history_info
+from edu_warning.tools import user_setting
 # Create your views here.
 
 
 def plan_design(request):
-    # q_m, q_y, summary_category = basic_history_info()
-    # q_list = HistoryWarning.objects.filter(q_m)
-    # q_data_range = q_list.filter(q_y)
-    # qs1 = map(lambda x: q_data_range.filter(post_category__name=x), summary_category[:3])
-    # qs2 = map(lambda x: q_list.filter(post_category__name=x), summary_category[-2:])
-    # summary1, summary2, charts = summary_stats(qs1, qs2)
-    # context = {
-    #     "page_now": "预警研判",
-    #     "cards_with_figure": summary1,
-    #     "cards": summary2,
-    #     'charts': charts,
-    # }
-    context = {}
+    context = {"page_now": "创意设计"}
+
+    q = Posts.objects.filter(post_category__name="筹划设计").order_by('date')
+    q = list(map(lambda x: (x.id, x.title, x.uploadfile_set.all()[0].file), q))
+    paginator = Paginator(q, user_setting['creative']['page_num'])
+
+    page = request.GET.get('page')
+    try:
+        q = paginator.page(page)
+    except PageNotAnInteger:
+        q = paginator.page(1)
+    except EmptyPage:
+        q = paginator.page(paginator.num_pages)
+    context['q'] = q
+
     return render(request, 'creative/design.html', context)
 
 
-# def history_detail(request):
-#     q_type = request.GET.get('type')
-#     if q_type is None:
-#         return
-#     context = {"q_type": q_type}
-#     q_m, q_y, summary_category = basic_history_info()
-#     q_category = Q(post_category__name=summary_category[int(request.GET.get('category'))])
-#     keyword = request.GET.get('keyword')
-#     if q_type == 'p':   # 问题详情
-#         context['query'] = HistoryWarning.objects.filter(q_m & q_y & q_category & Q(tag__name=keyword)).order_by("date")
-#     if q_type == 'f':   # 节日详情
-#         q = HistoryWarning.objects.get(q_category & Q(title=keyword))
-#         context['title'] = q.title
-#         context['description'] = q.content
-#         context['query'] = UploadFile.objects.filter(festival=q.id)
-#     if q_type == 'ff':   # 方案详情
-#         context['file'] = UploadFile.objects.get(pk=int(request.GET.get('id')))
+def post_detail(request):
+    q_type = request.GET.get('type')
+    if q_type is None:
+        return
+    context = {"q_type": q_type}
+    # q_m, q_y, summary_category = basic_history_info()
+    # q_category = Q(post_category__name=summary_category[int(request.GET.get('category'))])
+    # keyword = request.GET.get('keyword')
+    if q_type == 'p':   # 问题详情
+        context['query'] = HistoryWarning.objects.filter(q_m & q_y & q_category & Q(tag__name=keyword)).order_by("date")
+    if q_type == 'f':   # 节日详情
+        q = HistoryWarning.objects.get(q_category & Q(title=keyword))
+        context['title'] = q.title
+        context['description'] = q.content
+        context['query'] = UploadFile.objects.filter(festival=q.id)
+    if q_type == 't':   # 表格详情
+        context['file'] = Posts.objects.get(pk=int(request.GET.get('id')))
 
-#     return render(request, 'warning/warning_detail.html', context)
+    return render(request, 'creative/post_detail.html', context)
 
 
 # def questionnaire_warning(request):
