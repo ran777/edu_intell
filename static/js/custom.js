@@ -80,6 +80,16 @@ $('#backToTopBtn').click(function(){
     $('html,body').animate({scrollTop:0},'fast');return false;
 });
 
+$(document).on('click', '.js_post_modal', function () {
+    var id = $(this).attr("q_id");
+    var name = $(this).attr("q_name");
+    $.get("/creative/detail/?type=t&&id=" + id, function (data) {
+        $(".modal-title").html(name);
+        $(".modal-body").html(data);
+        $('#PostModal').modal("show");
+    });
+
+})
 
 $(document).ready(function () {
     resizeSidebar();

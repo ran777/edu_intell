@@ -9,12 +9,36 @@
     --color-5: #c4ebad;
     --color-6: #96dee8;
 }
+/*icon style*/
 .svg-white {
     fill: var(--content-bg-color);
 }
 .svg-blue {
     fill: var(--color-1);
 }
+.svg-sprite {
+    display: none;
+}
+.icon-sm {
+    width:1em;
+    height: auto;
+}
+.icon-md {
+    width:1.5em;
+    height: auto;
+}
+.icon-lg {
+    height: 1.7em;
+    width: auto;
+    fill: white;
+}
+.icon-success {
+    fill: var(--color-2);
+    height: 10em;
+    width: auto;
+}
+
+/*sidebar*/
 #sidebar {
     background-color: var(--main-bg-color);
     color: var(--main-color);
@@ -24,62 +48,17 @@
     left: 0;
     z-index: 1030;
 }
-
-.icon-sm {
-    width:1em;
-    height: auto;
-}
-.icon-md {
-    width:1.5em;
-    height: auto;
-}
-
-.icon-lg {
-    height: 1.7em;
-    width: auto;
-    fill: white;
-}
-
-.icon-success {
-    fill: var(--color-2);
-    height: 10em;
-    width: auto;
-}
-
-.svg-sprite {
-    display: none;
-}
-
-.navbar-brand img {
-    height: 40px;
-}
-
-.card-header:first-child {
-    border-radius: 0;
-    background-color: var(--main-bg-color);
-
-}
-
-.card-deck .col {
-    padding: 0;
-}
-
 .list-group-item {
     padding: 1.25em;
 }
 .list-group-item-custom {
-    color: #fff;
+    color: var(--content-bg-color);
     background-color: var(--main-bg-color)!important;
     border: none;
 }
-
 #sidebar .list-group {
     overflow-y: scroll;
     /*height: auto;*/
-}
-
-.main-wrapper.tab-content {
-    border: none;
 }
 
 #sidebar.list-group-item {
@@ -89,56 +68,48 @@
 #sidebar a {
     color: rgba(0, 0, 0, .65);
     padding: 0.5em 0.75em;
-    background-color: #fff;
+    background-color: var(--content-bg-color);
 }
 
 #sidebar a.active {
-    color: #fff;
+    color: var(--content-bg-color);
     background-color: #c1232b;
     font-weight: bold;
     border: none;
 }
-
-/* change transition animation to width when entire sidebar is toggled */
-#sidebar.collapse {
-    -webkit-transition-timing-function: ease;
-    -o-transition-timing-function: ease;
-    transition-timing-function: ease;
-    -webkit-transition-duration: .2s;
-    -o-transition-duration: .2s;
-    transition-duration: .2s;
+/*navbar*/
+.navbar-brand img {
+    height: 40px;
 }
 
-#sidebar.collapsing {
-    opacity: 0.8;
-    width: 0;
-    -webkit-transition-timing-function: ease-in;
-    -o-transition-timing-function: ease-in;
-    transition-timing-function: ease-in;
-    -webkit-transition-property: width;
-    -o-transition-property: width;
-    transition-property: width;
+/*card deck*/
+.card-deck .col {
+    padding: 0;
+}
+.card-header:first-child {
+    border-radius: 0;
+    background-color: var(--main-bg-color);
 }
 
-.questionnaire {
-    background-color: #fff;
-    padding: 1em 1.5em 0.5em;
-    margin-bottom: 1em;
-}
+/*tab*/
 .tab-content {
-    background-color: #fff;
-    border: var(--content-border);
+    background-color: var(--content-bg-color);
+    border: 1px solid #ddd;
     border-top: none;
     padding: 1em;
     margin-bottom: 1.5em;
 }
-
-.result-summury {
+.questionnaire {
+    background-color: var(--content-bg-color);
+    padding: 1em 1.5em 0.5em;
+    margin-bottom: 1em;
+}
+.result-summary {
     padding-left: 0.5em;
     padding-right: 1em;
 }
 
-.result-summury span {
+.result-summary span {
     display: inline-block;
     margin: 0;
 }
@@ -148,17 +119,12 @@
 }
 
 .main {
-    background-color: #fff;
+    background-color: var(--content-bg-color);
+    margin: 0;
 }
 
 .page-header {
     padding-top: 1em;
-}
-
-.btn-green {
-    color: #fff;
-    background-color: #c1232b;
-    border-color: #c1232b;
 }
 
 .img-box {
@@ -194,10 +160,6 @@
     border: none;
 }
 
-.card-columns {
-    column-gap: 2rem;
-    /* column-count: 4; */
-}
 
 .result {
     margin-top: 1em;
@@ -212,14 +174,15 @@
 }
 .content {
     margin-top: 14px;
-    /*color: #FFF;*/
+    /*color: var(--content-bg-color);*/
 }
 
-.main-wrapper.tab-content {
-    border: 1px solid #ddd;
+.card-columns {
+    column-gap: 2rem;
 }
+li, li a, span, span a {
+    display: inline-block;
 
-li, li a {
     vertical-align: middle;
 }
 .table-custom th, .table-custom td {
@@ -243,9 +206,6 @@ li, li a {
 
 .table-custom .row {
     margin: 0;
-    /*border: var(--content-border);*/
-    /*border-top: none;*/
-
 }
 
 .main-wrapper.tab-content.card-columns {

@@ -3,8 +3,7 @@
 {% load icon %}
 
 {% block main %}
-<div class="modal fade" id="PostModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle"
-     aria-hidden="true">
+<div class="modal fade" id="PostModal" tabindex="-1" role="dialog" aria-hidden="true">
     <div class="modal-dialog  modal-lg" role="document">
         <div class="modal-content">
             <div class="modal-header">
@@ -14,20 +13,16 @@
                 </button>
             </div>
             <div class="modal-body">
-                。。。
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">关闭</button>
             </div>
         </div>
-
     </div>
 </div>
-<div class="container-fluid main p-2">
-    <div class="container-fluid col-10 content">
-
-        <div class="col-8">
-            <nav class="nav nav-tabs" id="materialTab" role="tablist">
+<div class="row main p-4 justify-content-center">
+    <div class="col-7 ">
+            <nav class="nav nav-tabs" role="tablist">
                 <a class="nav-item nav-link active" id="nav-sp1-tab" data-toggle="tab" href="#nav-sp1" role="tab"
                    aria-controls="nav-sp1"
                    aria-expanded="true">筹划设计</a>
@@ -39,41 +34,34 @@
                 <a class="nav-item nav-link" id="nav-pic1-tab" data-toggle="tab" href="#nav-pic1" role="tab"
                    aria-controls="nav-pic1">
                     课件样式</a>
-
             </nav>
-
             <div class="tab-content" id="nav-tabContent">
                 <div class="tab-pane fade show active" id="nav-sp1" role="tabpanel" aria-labelledby="nav-sp1-tab">
-                    <div class="result-summury">
-                        <span>找到约 418,000 条结果 （用时 0.51 秒）</span>
+                    <div class="result-summary">
+                        <!--<span>找到约 418,000 条结果 （用时 0.51 秒）</span>-->
+                        <!--<button type="button" class="btn btn-green btn-sm">发表时间</button>-->
 
-                        <button type="button" class="btn btn-green btn-sm">发表时间</button>
-
-                        <button type="button" class="btn btn-green btn-sm">浏览次数</button>
+                        <!--<button type="button" class="btn btn-green btn-sm">浏览次数</button>-->
 
                     </div>
 
                     {% for i, j in q %}
-
                     <div class="item">
                         <span class="d-inline-block">
-                            <a class="post_modal" q_id="{{i.id}}" q_name="{{i.title}}"
+                            <a class="js_post_modal" q_id="{{i.id}}" q_name="{{i.title}}"
                                style="cursor:hand; color: #007bff">{{i.title}}</a>
-                            &nbsp;
                             <a href="/uploads/file_download/{{j}}?pid={{i.id}}">
                                 {% svg_icon "download" "icon-md"%}
                             </a>
                         </span>
                         <p class="post-info">{{ i.date }}/{{i.click_num}}次查看，{{i.download_num}}次下载</p>
-                        <div class="intro">{{ i.content }}</div>
+                        <span class="intro">{{ i.content }}</span>
                         <hr>
                     </div>
                     {% endfor %}
 
-                    <nav aria-label="Page navigation questionnaire">
-
-                        <ul class="pagination  justify-content-end">
-
+                    <nav aria-label="Page navigation">
+                        <ul class="pagination justify-content-end">
                             <li class="page-item {% if not q.has_previous %}disabled{%endif%}">
                                 <a class="page-link warning-sp2-page" href="#"
                                    aria-label="{% if q.has_previous %}{{q.previous_page_number}}{%endif%}">
@@ -88,40 +76,19 @@
                                     <span aria-hidden="true">&raquo;</span>
                                 </a>
                             </li>
-
                         </ul>
                     </nav>
+
                 </div>
                 <div class="tab-pane fade" id="nav-sp2" role="tabpanel" aria-labelledby="nav-sp2-tab">
-
-
                 </div>
                 <div class="tab-pane fade" id="nav-card1" role="tabpanel" aria-labelledby="nav-card1-tab">
-
                 </div>
                 <div class="tab-pane fade" id="nav-pic1" role="tabpanel" aria-labelledby="nav-pic1-tab">
-
                 </div>
             </div>
-        </div>
     </div>
+    <div class="col-4"></div>
 </div>
 
-{% endblock %}
-
-{% block echarts %}
-<script type="text/javascript">
-
-    $(document).on('click', '.post_modal', function () {
-        var id = $(this).attr("q_id");
-        var name = $(this).attr("q_name");
-        $.get("/creative/detail/?type=t&&id=" + id, function (data) {
-            $(".modal-title").html(name);
-            $(".modal-body").html(data);
-            $('#PostModal').modal("show");
-        });
-
-    })
-
-</script>
 {% endblock %}

@@ -13,7 +13,7 @@ from edu_warning.tools import user_setting
 def plan_design(request):
     context = {"page_now": "创意设计"}
 
-    q = Posts.objects.filter(post_category__name="筹划设计").order_by('date')
+    q = Posts.objects.filter(post_category__name="筹划设计").order_by('click_num')
     q = list(zip(q, (i.uploadfile_set.all()[0].file for i in q)))
     paginator = Paginator(q, user_setting['creative']['page_num'])
 
