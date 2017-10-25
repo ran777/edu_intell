@@ -15,10 +15,14 @@ Including another URLconf
 """
 from django.conf.urls import include, url
 from django.contrib import admin
-from edu_warning import views as warning
+from django.conf.urls.static import static
+from django.conf import settings
+
 
 urlpatterns = [
+    url(r'^uploads/', include('uploadfiles.urls', namespace='uploads')),
     url(r'^warning/', include('edu_warning.urls', namespace='warning')),
+    url(r'^creative/', include('edu_creative.urls', namespace='creative')),
     url(r'^admin/', admin.site.urls),
     url(r'^nested_admin/', include('nested_admin.urls')),
-]
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

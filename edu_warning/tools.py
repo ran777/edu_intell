@@ -34,7 +34,7 @@ def __template1(x):
         x[0][0],
         x[0][1].most_common(1)[0][0], x[0][2].most_common(1)[0][0]
     )
-
+    
 
 def __template2(x):
     if len(x[0]):

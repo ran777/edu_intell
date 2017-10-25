@@ -25,7 +25,7 @@ SECRET_KEY = 'cwj&-j14n7y23syfk!+(z5r5(fw0sa$0_6=_u@1+3ctaexhs^f'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['120.77.253.186', 'localhost', '127.0.0.1', ]
+ALLOWED_HOSTS = ['120.77.253.186', 'localhost', '127.0.0.1', 'rande777.com']
 
 
 # Application definition
@@ -41,6 +41,8 @@ INSTALLED_APPS = [
     'category',
     'uploadfiles',
     'edu_warning',
+    'posts',
+    'edu_creative',
 
 ]
 
@@ -128,11 +130,15 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
+if not DEBUG:
+    STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
 STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, "static"),
+    os.path.join(BASE_DIR, 'static/'),
 ]
 
+
 # media files
-MEDIA_URL = '/media/'
+
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+MEDIA_URL = '/media/'
