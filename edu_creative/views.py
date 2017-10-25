@@ -14,7 +14,7 @@ def plan_design(request):
     context = {"page_now": "创意设计"}
 
     q = Posts.objects.filter(post_category__name="筹划设计").order_by('date')
-    q = list(map(lambda x: (x.id, x.title, x.uploadfile_set.all()[0].file), q))
+    q = list(zip(q, (i.uploadfile_set.all()[0].file for i in q)))
     paginator = Paginator(q, user_setting['creative']['page_num'])
 
     page = request.GET.get('page')
@@ -45,7 +45,10 @@ def post_detail(request):
         context['description'] = q.content
         context['query'] = UploadFile.objects.filter(festival=q.id)
     if q_type == 't':   # 表格详情
-        context['file'] = Posts.objects.get(pk=int(request.GET.get('id')))
+        post = Posts.objects.get(pk=int(request.GET.get('id')))
+        post.click_num += 1
+        post.save()
+        context['file'] = post
 
     return render(request, 'creative/post_detail.html', context)
 

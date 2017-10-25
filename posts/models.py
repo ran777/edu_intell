@@ -6,6 +6,8 @@ class Posts(models.Model):
     title = models.CharField(max_length=100)
     date = models.DateField()
     content = models.TextField(null=True, blank=True)
+    click_num = models.IntegerField(default=0)
+    download_num = models.IntegerField(default=0)
 
     edu_category = models.ManyToManyField(
         'category.EduCategory',

@@ -53,19 +53,19 @@
 
                     </div>
 
-                    {% for q in q %}
+                    {% for i, j in q %}
 
                     <div class="item">
-                        <p class="d-inline-block">
-                            <a class="post_modal" q_id="{{q.0}}" q_name="{{q.1}}"
-                               style="cursor:hand; color: #007bff">{{q.1}}</a>
+                        <span class="d-inline-block">
+                            <a class="post_modal" q_id="{{i.id}}" q_name="{{i.title}}"
+                               style="cursor:hand; color: #007bff">{{i.title}}</a>
                             &nbsp;
-                            <a href="/media/{{q.2}}">
+                            <a href="/uploads/file_download/{{j}}?pid={{i.id}}">
                                 {% svg_icon "download" "icon-md"%}
                             </a>
-                        </p>
-                        <p class="post-info">{{ q.date }}11人查看，23人下载</p>
-                        <div class="intro">{{ q.content }}</div>
+                        </span>
+                        <p class="post-info">{{ i.date }}/{{i.click_num}}次查看，{{i.download_num}}次下载</p>
+                        <div class="intro">{{ i.content }}</div>
                         <hr>
                     </div>
                     {% endfor %}
