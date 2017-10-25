@@ -494,7 +494,14 @@
       <option name="project" value="LOCAL" />
       <updated>1508938196287</updated>
     </task>
-    <option name="localTasksCounter" value="22" />
+    <task id="LOCAL-00022" summary="tab-content加了边框">
+      <created>1508945469749</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1508945469749</updated>
+    </task>
+    <option name="localTasksCounter" value="23" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -578,7 +585,8 @@
     <MESSAGE value="fix js url bug" />
     <MESSAGE value="筹划设计显示记录、详情、下载" />
     <MESSAGE value="统计点击量、下载量" />
-    <option name="LAST_COMMIT_MESSAGE" value="统计点击量、下载量" />
+    <MESSAGE value="tab-content加了边框" />
+    <option name="LAST_COMMIT_MESSAGE" value="tab-content加了边框" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

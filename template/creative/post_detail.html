@@ -1,0 +1,44 @@
+{% load icon %}
+{% if q_type == "p" %}
+{% for q in query %}
+<p>
+    {{q.date}}
+    {{q.title}}
+    {{q.content}}
+</p>
+{% endfor %}
+
+{% elif q_type == "f" %}
+<div id="2" class="col m-2 p-1">
+    <h4>{{title}}</h4>
+    <div>{{description|safe}}</div>
+</div>
+<div id="3" class="col">
+    <table class="table table-hover table-custom border" cellspacing="0" cellpadding="0">
+        {% for q in query %}
+        <tr class="row">
+
+            <th class="d-inline-block">{{ forloop.counter }}</th>
+
+            <td class="d-inline-block">
+
+                <a class="festival_modal" q_id="{{q.id}}" q_name="{{q.name}}" style="cursor:hand; color: #007bff">{{q.name}}</a>
+                &nbsp;
+                <a href="/media/{{q.file}}">
+                    {% svg_icon "download" "icon-md"%}
+                </a>
+            </td>
+
+            <td class="d-inline-block">{{ q.date }}</td>
+        </tr>
+        {% endfor %}
+
+        <!--</tbody>-->
+    </table>
+
+</div>
+{% elif q_type == "t" %}
+
+        {{file.content|safe}}
+
+{% endif %}
