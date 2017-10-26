@@ -1,0 +1,35 @@
+{% load icon %}
+<div class="result-summary row justify-content-between">
+        <div class="col">
+            <span>找到约 418,000 条结果 （用时 0.51 秒）</span>
+            <button type="button" class="btn btn-green btn-sm">发表时间</button>
+            <button type="button" class="btn btn-green btn-sm">浏览次数</button>
+        </div>
+        <div class="col-md-auto">
+            <button type="button" class="btn btn-outline-dark btn-sm">单屏</button>
+            <button type="button" class="btn btn-outline-dark btn-sm">双屏</button>
+            <button type="button" class="btn btn-outline-dark btn-sm">三屏</button>
+            <select class="custom-select mb-2 mr-sm-2 mb-sm-0" id="inlineFormCustomSelectPref">
+                <option>全部类型</option>
+                <option>gif元素</option>
+                <option>psd封面</option>
+                <option>课件模版</option>
+            </select>
+        </div>
+    </div>
+    <hr>
+
+    <div class="row">
+    {% for x, i, f in q %}
+        <div class="col-md-4 img-box">
+            <img src="/media/{{i.file}}" class="img-thumbnail superPopover" data-toggle="popover" width="220" height="150"
+            class="img-responsive" alt="Generic placeholder thumbnail">
+            <h5></h5>
+            <span><a class="js_post_modal link" data-pid="{{x.id}}" data-fid="{{f.id}}" data-iid="{{i.id}}" data-type="c" data-name="{{x.title}}">{{x.title}}</a>
+                <a href="/uploads/file_download/{{f.file}}?pid={{x.id}}">
+            {% svg_icon "download" "icon-md"%}
+        </a></span>
+        </div>
+        {% endfor %}
+    </div>
+    {% include "paginator.html" %}

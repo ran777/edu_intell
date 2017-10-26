@@ -83,8 +83,9 @@ $(document).on('click', '.js_post_modal', function () {
     var name = $(this).attr("data-name");
     var type = $(this).attr("data-type");
     var fid = $(this).attr("data-fid");
+    var iid = $(this).attr("data-iid");
 
-    var url = "/creative/detail/?type="+type+"&&pid="+pid+"&&fid="+fid;
+    var url = "/creative/detail/?type="+type+"&&pid="+pid+"&&fid="+fid+"&&iid="+iid;
     $.get(url, function (data) {
         $(".modal-title").html(name);
         $(".modal-body").html(data);
@@ -94,8 +95,8 @@ $(document).on('click', '.js_post_modal', function () {
 
 window.onscroll = function() {scrollFunction()};
 $('#PostModal').on('hidden.bs.modal', function () {
-   $('#player')[0].pause();
-
+    var player = $('#player');
+    if (player.length > 0 ){ player[0].pause();}
 });
 
 $(document).ready(function () {
@@ -109,6 +110,7 @@ $(document).ready(function () {
         ajaxPage("/creative/design/", '#creative_tab_1');
         ajaxPage("/creative/templates/", '#creative_tab_2');
         ajaxPage("/creative/method/", '#creative_tab_3');
+        ajaxPage("/creative/courseware/", '#creative_tab_4');
 
     }
 });

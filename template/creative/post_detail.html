@@ -1,26 +1,15 @@
 {% load icon %}
-{% if q_type == "p" %}
-{% for q in query %}
-<p>
-    {{q.date}}
-    {{q.title}}
-    {{q.content}}
-</p>
-{% endfor %}
 
+{% if q_type == "c" %}
+    <img src="/media/{{ img.file }}" class="img-fluid" alt="Responsive image">
 {% elif q_type == "m" %}
     {% if file.type == "v" %}
     <div class="embed-responsive embed-responsive-16by9">
         <video id="player" src="/media/{{ file.file }}" controls="controls">
-您的浏览器不支持 video 标签。
-</video>
-      <!--<video class="embed-responsive-item" id="player" src="/media/{{ file.file }}"></video>-->
+            您的浏览器不支持 video 标签。
+        </video>
     </div>
     {% endif %}
-    {{post.content|safe}}
-
-{% elif q_type == "t" %}
-
-        {{post.content|safe}}
 
 {% endif %}
+{{ post.content|safe }}

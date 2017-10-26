@@ -12,6 +12,10 @@
 .link {
     color: #007bff!important;
 }
+a:hover {
+    text-decoration: underline;
+}
+
 /*icon style*/
 .svg-white {
     fill: var(--content-bg-color);
