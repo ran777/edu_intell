@@ -9,6 +9,9 @@
     --color-5: #c4ebad;
     --color-6: #96dee8;
 }
+.link {
+    color: #007bff!important;
+}
 /*icon style*/
 .svg-white {
     fill: var(--content-bg-color);

@@ -64,16 +64,19 @@ def post_detail(request):
     # keyword = request.GET.get('keyword')
     # if q_type == 'p':   # 问题详情
     #     context['query'] = HistoryWarning.objects.filter(q_m & q_y & q_category & Q(tag__name=keyword)).order_by("date")
-    # if q_type == 'f':   # 节日详情
-    #     q = HistoryWarning.objects.get(q_category & Q(title=keyword))
-    #     context['title'] = q.title
-    #     context['description'] = q.content
-    #     context['query'] = UploadFile.objects.filter(festival=q.id)
-    if q_type == 't':   # 表格详情
-        post = Posts.objects.get(pk=int(request.GET.get('id')))
+    if q_type == 'm':   # 方法形式详情
+        post = Posts.objects.get(pk=int(request.GET.get('pid')))
         post.click_num += 1
         post.save()
-        context['file'] = post
+        context['post'] = post
+        file = UploadFile.objects.get(pk=int(request.GET.get('fid')))
+        context['file'] = file
+
+    if q_type == 't':   # 表格详情
+        post = Posts.objects.get(pk=int(request.GET.get('pid')))
+        post.click_num += 1
+        post.save()
+        context['post'] = post
 
     return render(request, 'creative/post_detail.html', context)
 

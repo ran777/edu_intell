@@ -79,9 +79,13 @@ $('#backToTopBtn').click(function(){
 });
 
 $(document).on('click', '.js_post_modal', function () {
-    var id = $(this).attr("q_id");
-    var name = $(this).attr("q_name");
-    $.get("/creative/detail/?type=t&&id=" + id, function (data) {
+    var pid = $(this).attr("data-pid");
+    var name = $(this).attr("data-name");
+    var type = $(this).attr("data-type");
+    var fid = $(this).attr("data-fid");
+
+    var url = "/creative/detail/?type="+type+"&&pid="+pid+"&&fid="+fid;
+    $.get(url, function (data) {
         $(".modal-title").html(name);
         $(".modal-body").html(data);
         $('#PostModal').modal("show");
@@ -89,6 +93,10 @@ $(document).on('click', '.js_post_modal', function () {
 });
 
 window.onscroll = function() {scrollFunction()};
+$('#PostModal').on('hidden.bs.modal', function () {
+   $('#player')[0].pause();
+
+});
 
 $(document).ready(function () {
     resizeSidebar();

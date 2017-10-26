@@ -14,7 +14,11 @@
         <img class="card-img-top" src="/media/{{i.0.file}}" alt="Card image cap">
         {% endif %}
         <div class="card-body">
-            <h4 class="card-title">{{x.title}}</h4>
+            <h4 class="card-title">
+                <a class="js_post_modal link" data-pid="{{x.id}}"
+                   data-fid="{%if v %}{{v.0.id}}{%else%}{{f.0.id}}{%endif%}"
+                   data-type="m" data-name="{{x.title}}">{{x.title}}</a>
+            </h4>
             <p class="card-text">{{x.content}}</p>
             <!--<p class="card-text">-->
                 <!--<small class="text-muted">Last updated 3 mins ago</small>-->

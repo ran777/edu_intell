@@ -11,8 +11,7 @@
 {% for i, j in q %}
 <div class="item">
     <span class="d-inline-block">
-        <a class="js_post_modal" q_id="{{i.id}}" q_name="{{i.title}}"
-           style="cursor:hand; color: #007bff">{{i.title}}</a>
+        <a class="js_post_modal link" data-pid="{{i.id}}" data-type="t" data-name="{{i.title}}">{{i.title}}</a>
         <a href="/uploads/file_download/{{j}}?pid={{i.id}}">
             {% svg_icon "download" "icon-md"%}
         </a>
