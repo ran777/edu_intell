@@ -9,24 +9,36 @@ from uploadfiles.models import UploadFile
 from edu_warning.tools import user_setting
 # Create your views here.
 
-
-def plan_design(request):
-    context = {"page_now": "创意设计"}
-
-    q = Posts.objects.filter(post_category__name="筹划设计").order_by('click_num')
-    q = list(zip(q, (i.uploadfile_set.all()[0].file for i in q)))
+def __page_it(q, page):
     paginator = Paginator(q, user_setting['creative']['page_num'])
-
-    page = request.GET.get('page')
     try:
         q = paginator.page(page)
     except PageNotAnInteger:
         q = paginator.page(1)
     except EmptyPage:
         q = paginator.page(paginator.num_pages)
-    context['q'] = q
+    return q
 
+
+def index(request):
+    context = {"page_now": "创意设计"}
+    return render(request, 'creative/base.html', context)
+
+def design(request):
+    q = Posts.objects.filter(post_category__name="筹划设计").order_by('click_num')
+    q = list(zip(q, (i.uploadfile_set.all()[0].file for i in q)))
+
+    context = {'q': __page_it(q, request.GET.get('page'))}
     return render(request, 'creative/design.html', context)
+
+
+def templates(request):
+    q = Posts.objects.filter(post_category__name="模版创意").order_by('click_num')
+    q = list(zip(q, (i.uploadfile_set.all()[0].file for i in q)))
+
+    context = {'q': __page_it(q, request.GET.get('page'))}
+
+    return render(request, 'creative/template_creative.html', context)
 
 
 def post_detail(request):
@@ -37,13 +49,13 @@ def post_detail(request):
     # q_m, q_y, summary_category = basic_history_info()
     # q_category = Q(post_category__name=summary_category[int(request.GET.get('category'))])
     # keyword = request.GET.get('keyword')
-    if q_type == 'p':   # 问题详情
-        context['query'] = HistoryWarning.objects.filter(q_m & q_y & q_category & Q(tag__name=keyword)).order_by("date")
-    if q_type == 'f':   # 节日详情
-        q = HistoryWarning.objects.get(q_category & Q(title=keyword))
-        context['title'] = q.title
-        context['description'] = q.content
-        context['query'] = UploadFile.objects.filter(festival=q.id)
+    # if q_type == 'p':   # 问题详情
+    #     context['query'] = HistoryWarning.objects.filter(q_m & q_y & q_category & Q(tag__name=keyword)).order_by("date")
+    # if q_type == 'f':   # 节日详情
+    #     q = HistoryWarning.objects.get(q_category & Q(title=keyword))
+    #     context['title'] = q.title
+    #     context['description'] = q.content
+    #     context['query'] = UploadFile.objects.filter(festival=q.id)
     if q_type == 't':   # 表格详情
         post = Posts.objects.get(pk=int(request.GET.get('id')))
         post.click_num += 1

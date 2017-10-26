@@ -7,18 +7,18 @@
 <div class="container-fluid main-wrapper ">
     <div style="height:14px; color:#f5f5f5"></div>
     <nav class="nav nav-tabs  nav-justified" id="materialTab" role="tablist">
-        <a class="nav-item nav-link active" id="warning-sp1-tab" data-toggle="tab" href="#warning-sp1" role="tab"
-           aria-controls="warning-sp1"
+        <a class="nav-item nav-link active" id="warning-sp1-tab" data-toggle="tab" href="#warning-tab1" role="tab"
+           aria-controls="warning-tab1"
            aria-expanded="true">历年累计预警</a>
-        <a class="nav-item nav-link" id="warning-sp2-tab" data-toggle="tab" href="#warning-sp2" role="tab"
-           aria-controls="warning-sp2" aria-expanded="true">调查问卷</a>
-        <a class="nav-item nav-link disabled" id="warning-sp3-tab" data-toggle="tab" href="#warning-sp3" role="tab"
-           aria-controls="warning-sp3"
+        <a class="nav-item nav-link" id="warning-tab2-tab" data-toggle="tab" href="#warning-tab-2" role="tab"
+           aria-controls="warning-tab-2" aria-expanded="true">调查问卷</a>
+        <a class="nav-item nav-link disabled" id="warning-tab3-tab" data-toggle="tab" href="#warning-tab3" role="tab"
+           aria-controls="warning-tab3"
            aria-expanded="true">思想动态</a>
     </nav>
 
     <div class="tab-content" id="nav-tabContent">
-        <div class="tab-pane fade show active" id="warning-sp1" role="tabpanel" aria-labelledby="warning-sp1-tab">
+        <div class="tab-pane fade show active" id="warning-tab1" role="tabpanel" aria-labelledby="warning-tab1-tab">
             <!-- 这是历年累计预警 -->
             <div class="result">
                 <h4>摘要</h4>
@@ -93,11 +93,10 @@
 
         </div>
 
-        <div class="tab-pane fade show" id="warning-sp2" role="tabpanel" aria-labelledby="warning-sp2-tab">
-            这是调查问卷
-
+        <div class="tab-pane fade show" id="warning-tab-2" role="tabpanel" aria-labelledby="warning-tab2-tab">
+            调查问卷加载中...
         </div>
-        <div class="tab-pane fade show" id="warning-sp3" role="tabpanel" aria-labelledby="warning-sp3-tab">
+        <div class="tab-pane fade show" id="warning-tab3" role="tabpanel" aria-labelledby="warning-tab3-tab">
             这是思想动态
         </div>
     </div>
@@ -114,13 +113,11 @@
         </button>
       </div>
       <div class="modal-body">
-        。。。
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">关闭</button>
       </div>
     </div>
-
 </div>
 {% endblock %}
 

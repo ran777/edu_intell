@@ -1,0 +1,43 @@
+{% extends "common.html" %}
+{% load static %}
+{% load icon %}
+
+{% block main %}
+<div class="modal fade" id="PostModal" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog  modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="festivalModalTitle">file.title</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">关闭</button>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row main p-4 justify-content-center">
+    <div class="col-7 ">
+            <nav class="nav nav-tabs" role="tablist">
+                <a class="nav-item nav-link active" data-toggle="tab" href="#creative_tab_1">筹划设计</a>
+                <a class="nav-item nav-link" data-toggle="tab" href="#creative_tab_2">模版创意</a>
+                <a class="nav-item nav-link" data-toggle="tab" href="#creative_tab_3">方法形式</a>
+                <a class="nav-item nav-link" data-toggle="tab" href="#creative_tab_4">课件样式</a>
+            </nav>
+            <div class="tab-content" id="nav-tabContent">
+                <div class="tab-pane fade show active" id="creative_tab_1" data-url="design"></div>
+                <div class="tab-pane fade" id="creative_tab_2" data-url="templates"></div>
+                <div class="tab-pane fade" id="creative_tab_3" data-url="method"></div>
+                <div class="tab-pane fade" id="creative_tab_4" data-url="courseware"></div>
+            </div>
+    </div>
+    <div class="col-4">
+
+    </div>
+</div>
+
+{% endblock %}

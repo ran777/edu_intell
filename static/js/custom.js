@@ -49,9 +49,6 @@ function scrollFunction() {
     }
 }
 
-
-window.onscroll = function() {scrollFunction()};
-
 function resizeSidebar() {
     var h = $(window).height();
     $("#sidebar,.list-group").css("height", h-140); //加了个逗号
@@ -67,13 +64,14 @@ function ajaxPage(url, element) {
     })
 }
 
-$('#warning-sp2-tab').click(ajaxPage("/warning/questionnaire_list", '#warning-sp2'));
-
-
-$(document).on('click', '.warning-sp2-page', function () {
-    ajaxPage("/warning/questionnaire_list?page="+$(this).attr('aria-label'), '#warning-sp2');
+$(document).on('click', 'warning-tab2-page', function () {
+    ajaxPage("/warning/questionnaire_list?page="+$(this).attr('aria-label'), '#warning-tab2');
 });
 
+$(document).on('click', 'a[class^=js_creative_page]', function (event) {
+    var tab = $(event.target).parents("div[class^=tab-pane]");
+    ajaxPage("/creative/"+tab.attr("data-url")+"?page="+$(this).attr('aria-label'), '#'+tab.attr("id"));
+});
 
 // When the user clicks on the button, scroll to the top of the document
 $('#backToTopBtn').click(function(){
@@ -88,9 +86,21 @@ $(document).on('click', '.js_post_modal', function () {
         $(".modal-body").html(data);
         $('#PostModal').modal("show");
     });
+});
 
-})
+window.onscroll = function() {scrollFunction()};
 
 $(document).ready(function () {
     resizeSidebar();
+    var questionnaire_list = $('#warning-tab-2');
+    if (questionnaire_list.length > 0) {
+        ajaxPage("/warning/questionnaire_list", '#warning-tab-2');
+    }
+    var creative_list = $('#creative_tab_1');
+    if (creative_list.length > 0) {
+        ajaxPage("/creative/design", '#creative_tab_1');
+        ajaxPage("/creative/templates", '#creative_tab_2');
+
+    }
 });
+

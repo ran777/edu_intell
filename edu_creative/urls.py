@@ -1,9 +1,12 @@
 from django.conf.urls import url
 
-from .views import plan_design, post_detail
+from .views import index, design, post_detail, templates
 
 urlpatterns = [
-    url(r'^$', plan_design, name='design'),
+    url(r'^$', index),
+    url(r'^design/$', design, name='design'),
+    url(r'^templates/$', templates, name='templates'),
+
     url(r'^detail/$', post_detail, name='detail'),
     # url(r'^questionnaire_list/$', questionnaire_warning, name='questionnaire_list'),
     # url(r'^questionnaire/(?P<q_id>[0-9]+)/$', questionnaire_detail, name='questionnaire_detail'),

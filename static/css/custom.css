@@ -226,6 +226,10 @@ li, li a, span, span a {
     padding-bottom: 0;
     margin-bottom: -1em;
 }
+/*a 手型*/
+a {
+    cursor: hand;
+}
 
 body {
     padding-top: 66px;
