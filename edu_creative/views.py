@@ -41,6 +41,19 @@ def templates(request):
     return render(request, 'creative/template_creative.html', context)
 
 
+def method(request):
+    q = Posts.objects.filter(post_category__name="方法形式").order_by('click_num')
+    # q = list(zip(q, (i.uploadfile_set.all()[0].file for i in q)))
+    attachment = [i.uploadfile_set.all() for i in q]
+    img = (i.filter(type='i') for i in attachment)
+    files = (i.filter(type='f') for i in attachment)
+    videos = (i.filter(type='v') for i in attachment)
+    q = list(zip(q, img, files, videos))
+    context = {'q': __page_it(q, request.GET.get('page'))}
+
+    return render(request, 'creative/method_form.html', context)
+
+
 def post_detail(request):
     q_type = request.GET.get('type')
     if q_type is None:

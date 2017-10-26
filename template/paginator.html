@@ -6,8 +6,9 @@
                 <span aria-hidden="true">&laquo;</span>
             </a>
         </li>
-        <li class="page-item disabled"><a class="page-link">第{{ q.number }}页 / 共
-            {{ q.paginator.count }}页</a></li>
+        <li class="page-item disabled"><a class="page-link">第{{ q.number }}页 /
+
+            共{%if q.has_previous or q.has_next %}{{ q.paginator.count }}{%else%}1{%endif%}页</a></li>
         <li class="page-item {% if not q.has_next %}disabled{%endif%}">
             <a class="js_creative_page page-link"
                aria-label="{% if q.has_next %}{{q.next_page_number}}{%endif%}">

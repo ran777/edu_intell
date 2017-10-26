@@ -12,7 +12,7 @@
     "template_1": "近%d年来， %s月间共发生:",
     "template_2": "%s %s",
     "template_3": "近%d年来， %s月间无此类问题。",
-    "page_num": 1,
+    "page_num": 15,
     "bar_title": "%s月份重点问题(%d~%d年)",
     "bar": {
       "title": {
@@ -58,7 +58,6 @@
     }
   },
   "creative": {
-    "page_num": 1
-
+    "page_num": 15
   }
 }

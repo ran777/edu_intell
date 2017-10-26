@@ -11,5 +11,15 @@ class UploadFile(models.Model):
     file = models.FileField(upload_to="uploads/%Y/%m")
     date = models.DateField(auto_now_add=True)
     festival = models.ForeignKey(HistoryWarning, on_delete=models.CASCADE, null=True)
+    type = models.TextField(
+        max_length=1,
+        choices=(
+            ('i', 'image'),
+            ('f', 'file'),
+            ('v', 'video'),
+        ),
+        default='f',
+    )
     posts = models.ForeignKey(Posts, on_delete=models.CASCADE, null=True)
+
 

@@ -98,8 +98,9 @@ $(document).ready(function () {
     }
     var creative_list = $('#creative_tab_1');
     if (creative_list.length > 0) {
-        ajaxPage("/creative/design", '#creative_tab_1');
-        ajaxPage("/creative/templates", '#creative_tab_2');
+        ajaxPage("/creative/design/", '#creative_tab_1');
+        ajaxPage("/creative/templates/", '#creative_tab_2');
+        ajaxPage("/creative/method/", '#creative_tab_3');
 
     }
 });

@@ -1,11 +1,12 @@
 from django.conf.urls import url
 
-from .views import index, design, post_detail, templates
+from .views import index, design, post_detail, templates, method
 
 urlpatterns = [
     url(r'^$', index),
     url(r'^design/$', design, name='design'),
     url(r'^templates/$', templates, name='templates'),
+    url(r'^method/$', method, name='method'),
 
     url(r'^detail/$', post_detail, name='detail'),
     # url(r'^questionnaire_list/$', questionnaire_warning, name='questionnaire_list'),
